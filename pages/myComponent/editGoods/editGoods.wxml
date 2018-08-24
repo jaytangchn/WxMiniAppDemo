@@ -1,0 +1,66 @@
+<!--pages/myComponent/editGoods/editGoods.wxml-->
+<view class='cover' wx:if="{{toggleChoose == 'on'}}" bindtap='coverHide'> </view>
+<view class="mask {{ toggleChoose == 'on'? 'show':''}}"  data-toggle="off" >
+  <view class='popup-choose'>
+    <view class='hd'>
+      <view class = 'img-contain'>
+        <image src='{{goods.goodsImgUrl[0].url}}'></image>
+      </view>
+      <view class='item-mes'>
+        <view class='item-mes-price'>￥{{goods.marketPrice}}</view>
+        <view class='item-mes-title'>{{goods.goodsName}}</view>
+      </view>
+    </view>
+    <view class='bd'>
+      <view class='type-title'>包装</view>
+      <view class='type-lists'>
+        <view class='type-item' >{{goods.packUnit}}</view>
+      </view>
+      <view class='type-title'>规格</view>
+      <view class='type-lists'>
+                <view class='type-item' >{{goods.packMultiple}}</view>
+      </view>
+      <view class='num-act-row'>
+        <view class='num-title'>订货箱数</view>
+        <view class='num-act-box'>
+          <view class='num-act reduce' data-type="package-" bindtap='changeShoppingCnt' ></view>
+          <input  type='number' class='num-input' value='{{goods.packCount}}' data-type="packageInput" bindinput='changeShoppingCnt'></input>
+           <view class='num-act plus' data-type="package+" bindtap='changeShoppingCnt'></view>
+        </view>
+      </view>
+      <view class='num-act-row'>
+        <view class='num-title'>订货零数</view>
+        <view class='num-act-box'>
+          <view class='num-act reduce' data-type="excess-"  bindtap='changeShoppingCnt' ></view>
+          <input  type='number' class='num-input' value='{{goods.count}}' data-type="excessInput" bindinput='changeShoppingCnt'></input>
+           <view class='num-act plus' data-type="excess+" bindtap='changeShoppingCnt' ></view>
+        </view>
+      </view>
+        <view class = 'merch-discount flex-items'>
+          <view class = 'name flex-item'>默认折扣</view>
+          <view class = 'name flex-item' style='text-align:right;padding-right:15rpx;'>{{goods.defaultDiscount*100}}%</view>
+        </view>
+        <view class = 'merch-discount flex-items' wx:if="{{!isSaleman}}">
+          <view class = 'name flex-item'>实际折扣</view>
+          <view class = 'name flex-item' style='text-align:right;padding-right:15rpx;'>{{goods.discountRatio*100}}%</view>
+        </view>
+        <view class = 'num-act-row discount'  wx:if="{{isSaleman}}">
+          <view class='num-title' >实际折扣</view>
+          <view class='num-act-box'> 
+              <input type='digit'  class='num-input' value='{{goods.discountRatio*100}}' data-type="" bindinput='inputRealDiscount'></input>
+          <view class='unit'>%</view> 
+         </view>
+        </view>
+
+    </view>
+    <view class='ft-mes'>
+      <view>合计：</view>
+      <view class='ft-mes-price'>
+        <text class='small'>￥</text>
+        <text>{{goods.realTotal}}</text>
+      </view>
+    </view>
+    <view class='flex-items'  ><view class='half-btn flex-item' bindtap='delete'>删除</view>
+    <view class='half-btn flex-item'  data-toggle="off" bindtap='chooseToggle' >确定</view></view>
+  </view>
+</view>

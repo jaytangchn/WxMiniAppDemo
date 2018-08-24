@@ -1,0 +1,142 @@
+/* pages/sure/sure.wxss */
+@import '../mineMes/mineMes.wxss';
+.tag{
+  background-color: #FFE5C0;
+  color: #B9966F;
+  font-size: 24rpx;
+  display: inline-block;
+  margin-right: 10rpx;
+  width: 110rpx;
+  height: 34rpx;
+  text-align: center;
+  line-height: 34rpx;
+  border-radius: 4rpx;
+}
+
+.order-detail-items{
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
+.order-detail-item-hd{
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.hd-left{
+  width: 100%;
+  flex-shrink: 1;
+}
+.hd-left-top{
+  font-size: 32rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.hd-left-bottom{
+  display: flex;
+}
+.hd-left-bottom-item{
+  flex: 1;
+  position: relative;
+  font-size: 26rpx;
+  color: #999;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding-left: 18rpx;
+}
+.hd-left-bottom-item::after{
+  content: '';
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 90px;
+  position: absolute;
+  background-color: #999;
+  top: 20rpx;
+  left: 0;
+}
+.hd-left-bottom-item.b{
+  color: #B9966F;
+}
+.hd-left-bottom-item.b::after{
+   background-color: #B9966F;
+}
+.toggle-item.open .arrow-right::after{
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAASCAYAAABM8m7ZAAACa0lEQVRIS52VPWgUQRTH/28vWmghe4IIgqC2UctgiCEYEbURFFfQzsjMXIJVYqHWJoVayeXmbdTOwhUFGw34gfhJOj/SxkIIiKCHhRaa2ycTdmWMl9xutpp98/7/387Mm7eEVTzMvBXAjUw6pLX+VNaGygoajcamIAheA9iRaefSNO2t1WpfyniVAjPzBgDPAexaAnkPoF9r/b0ovDCYmdcBeASgt505Eb0SkQNa659F4IXASZKsbTab9wEc9EzfZOM9Xmw6DMMjURT96gTvCE6SpNJsNm8BOOGZzQLoy95fAuj25m6HYXgqiqLWSvCOYGa2ALRnMrewsNA3MjLy2cXq9frmrq4uB8+LzYVZa21WDWbmSwAueAbzrVarf3h4+KNvOjk5ub1Sqbii2+LFx7XWF5eDL7tiZh4FcMUTfgMwoLX+0M6MmXcCeAag6s2Paa2vti3GdsE4jk+LSN4gXIqr1H1a65mVto+ZewA8BeBuwOJDRENKqZtLdf+t2Fp7lIjuAAiy5N9EdFgp9bhTpbr5OI73i8gDAGuy/FREjhtj7vn6f8DW2kEieuiLiChSSt0tAs1z4jg+JiKJ//EicsgY8+TvTuSDbJvcxPo8JiJnjDH+lhfmW2uHiOi6J/gBYDA/rsUVNxqN7iAIXGFs9M7mnFLKL67CUG/lYyJy2RN+TdN0oFarzdLU1NS2NE1f+FdBRCaMMf41Kg3NBdbacSI67xnMB0Gwl5jZnanfCmOllCEiWTVtibBNE5p24LcAdrtcVxDVavVkp3ZX9oPatN13lFWyu+QzYRieLdLgy4JdfvajuQagR0RG/wDOSOEtUSW81gAAAABJRU5ErkJggg==);
+  background-size: 30rpx 18rpx;
+  width: 30rpx;
+}
+.toggle-item .arrow-right::after{
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAASCAYAAABM8m7ZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJISURBVEhLrZWxa1NRFMbfi9GhDhInJwdd1Y5FLA7WgroIFdPBzZiXYHCyi3+A3ZwkIQnaQXFoRMGlFVEHEaWruAZBKHVpgoMOGhN/37vnpal9NS+aHxzu+c57ud89Nzc3frVanfF9/47neWuZTOZGNpv9QT52Go3Gvna7fZd0qtfr3UyZ6SQR8OABL+zRi+NEc7ZarYekATEpzxTJhh4a85iXLR8LdOczZwWzrJXERgquk6w7HVJg+xct/29qtdptBnUasS7PVD6f/9Ttds9R2HR1z2N1t+r1+oLJf0ZzaC6TYlNe8vStoJVNMbwi9ocFYJuuFYvF+yZHgl3LYXrPpPhGzBQKhTWJvrGwE75KutdVvK6+myAInphOBJ1eYtENUp0h8RN9nibUWMg2Y4H5HGaPSfsfQl/A/KXpv4LpWUxWSPuLR1/G9KnpkB3Ggg9f5eXBLf5OnIm2aTfs63pNTIQFYNE5Fr1ksk/U1TbsxcHDpYlWmPi4kzuxZ+q0bwoLcaYi1ljQnS6WwZ/VQWK1UqkccXILq+ls6J2IRZsjltitHoROqgwFp0KanU5nulQqfZEol8uH0un0W9Kj0kYN06LlsQw11nXHzfOIdN5VQj4S0y71ZHrMpSHL3PlXuPN/mY5lqLGwC/4ZqS6aiPc2nrRRPMf0YpI/mkTGgi2f4IS+4LSfstKfvCNm2WL9AoaS2FhgfoDhDXEiLGzxgTiN6Vcnh7PrqY5DE3PXzpI2XSWkqdoopmKkjiPo/DBDdMHkMP1seUI87zcjidn/VnoLTAAAAABJRU5ErkJggg==);
+  background-size: 30rpx 18rpx;
+  width: 30rpx;
+}
+.gray{
+  background-color: #FBFBFB;
+}
+.signle-cell.gray .cell-left{
+  color: #333;
+}
+.tip{
+  font-size: 24rpx;
+  color: #999;
+  text-align: center;
+    padding: 30rpx;
+  margin-top: 30rpx;
+}
+.tip image{
+  display: inline-block;
+  margin-right: 10rpx;
+  width: 26rpx;
+  height: 26rpx;
+
+}
+.mailbox{
+  padding: 0 30rpx;
+  background-color: #fff;
+}
+.mailbox .mail-item{
+  position: relative;
+  padding: 30rpx 0 30rpx 80rpx;
+}
+.mailbox .mail-item::before{
+  content: '';
+  position: absolute;
+  width: 4rpx;
+  height: 100%;
+  left: 30rpx;
+  bottom: 0;
+  background-color: #eee;
+}
+.mailbox .mail-item:first-child::before{
+  height: 50%;
+}
+.mailbox .mail-item:last-child::before{
+  height: 50%;
+  bottom: 50%;
+}
+.mailbox .mail-item::after{
+  content: '';
+  position: absolute;
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 90px;
+  border: 8rpx solid #eee;
+  left: 16rpx;
+  top: 50%;
+  margin-top: -16rpx;
+  background-color: #ccc;
+}
+.mailbox .mail-item:first-child::after{
+  background-color: #B9966F;
+  border-color: #FFE5C0
+}
+.mail-item .content{
+  font-size: 30rpx;
+  line-height: 50rpx;
+}
+.mail-item .time{
+  color: #777;
+  margin-top: 10rpx;
+  line-height: 50rpx;
+}

@@ -1,0 +1,64 @@
+<!--pages/editAddress/editAddress.wxml-->
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>收货人姓名</view>
+    <view class='cell-right'>
+      <input value='{{addr.name}}' data-type="name" bindinput="updateAddr" style='text-align:right'></input>
+    </view>
+  </view>
+</view>
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>手机号码</view>
+    <view class='cell-right'>
+      <input value='{{addr.mobile}}' data-type="mobile" bindinput="updateAddr" style='text-align:right'></input>
+    </view>
+  </view>
+</view>
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>固定电话</view>
+    <view class='cell-right'>
+      <input value='{{addr.tel}}' data-type="tel" bindinput="updateAddr" style='text-align:right'></input>
+    </view>
+  </view>
+</view>
+<!-- <view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>收货地区</view>
+    <view class='cell-right arrow-right'>
+      <picker>
+        <view>湖南省 长沙市 雨花区</view>
+      </picker> 
+    </view>
+  </view>
+</view> -->
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>详细地址</view>
+    <view class='cell-right'>
+      <input value='{{addr.addrInfo}}' data-type="addrInfo" bindinput="updateAddr" style='text-align:right'></input>
+    </view>
+  </view>
+</view> 
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>邮编</view>
+    <view class='cell-right'>
+      <input value='{{addr.zip}}' data-type="zip" bindinput="updateAddr" style='text-align:right'></input>
+    </view>
+  </view>
+</view>
+<!-- <view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>设为默认地址</view>
+    <view class='cell-right'>
+      <view>
+        <switch checked bindchange="switch1Change" />
+      </view>
+    </view>
+  </view>
+</view> -->
+<view class = 'add-address' data-type="save" bindtap="updateAddr">
+  保存修改
+</view>

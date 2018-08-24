@@ -1,0 +1,113 @@
+<!--pages/itemDetail/itemDetail.wxml-->
+<view class='big-container' style="overflow:{{toggleDetail == 'on' || toggleChoose=='on'?'hidden':'auto'}}">
+  <swiper indicator-dots="true" autoplay="true" circular='true' interval="5000" duration="500" class='d-swiper'>
+    <block wx:for="{{goods.tmGoodsSkuListCusts[0].imgUrls}}" wx:key="indexImg">
+      <swiper-item>
+        <image src="{{item.url}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='item-mes-box'>
+    <view class='item-title-row'>
+      <view class='item-title'><text class='itemid'>#{{goods.goodsCode}}</text> {{goods.goodsName}}</view>
+    </view>
+    <view class='item-tags'>
+      <!-- <view class='item-tag'>正品保障</view>
+      <view class='item-tag'>当季热销</view> -->
+    </view>
+  </view>
+  <view class='cells'>
+    <view class='signle-cell'>
+      <view class='cell-left'>选择规格</view>
+      <view class="cell-right arrow-right" data-toggle="on" bindtap="chooseToggle">选择</view>
+    </view> 
+    <view class='signle-cell'>
+      <view class='cell-left'>商品参数</view>
+      <view class='cell-right arrow-right' data-detail="on" bindtap='detailToggle' >查看</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>商品详情</view>
+      <view class='cell-right arrow-right' bindtap='scrollToDetail'>查看</view>
+    </view>
+  </view>
+  <!-- <view class='fieldset'>
+    <view class='icon-g'></view>
+    <text>商品信息</text>
+  </view> -->
+  <!-- <image wx:for="{{goods.tmGoodsSkuListCusts[0].imgUrls}}"  src='{{item.url}}' class='detail-img' mode='widthFix'></image>  -->
+
+  <import src="../wxParse/wxParse.wxml"/>  
+
+  <view class=''>  
+    <template  is="wxParse" data="{{wxParseData:goodsDescs.nodes}}"></template>   
+  </view>   
+
+  <view class='fixed-bottom-bar'>
+    <view class='aw-btn bg-third'>￥{{goods.skuList[0].unitPrice}}</view>
+
+  <view class='fw-btn bg-second' data-toggle="on"  bindtap="chooseToggle">加入购物车</view>
+  <view class='fw-btn bg-primary'   bindtap='buy'>立即购买</view>
+</view>
+
+<view class='fixed-actions'>
+  <view class='act' bindtap='scrollTop'>
+    <image src='../../images/arrow-up.png' style='width:30rpx;height:18rpx;'></image>
+  </view>
+</view>
+  <view class='fixed-actions'>
+    <view class='act' bindtap='scrollTop'>
+      <image src='../../images/arrow-up.png' style='width:30rpx;height:18rpx;'></image>
+    </view>
+    <view class='act' bindtap='scrollToDetail'>详情</view>
+    <button class='act' open-type='share' plain='true'>分享</button>
+  </view>
+  <!-- 这里点击任何部位都会触发catchtap="chooseToggle"报错,但不影响, -->
+  <!-- <view class="container"></view> -->
+  <chooseSku id="chooseSku" toggleChoose="{{toggleChoose}}" bind:ifMoveEvent = 'ifMove' selectedInfo="{{selectedGoods}}"  bind:changeEvent="refreshSelect" ></chooseSku>
+
+  <view class="mask {{ toggleDetail == 'on'? 'show':''}}"  data-detail="off" catchtap="detailToggle">
+    <view class='parameter'>
+      <view class='parameter-h'>商品参数</view>
+      <view class='p-row'>
+        <view class='left'>品牌</view>
+        <view class='right'>杏花楼</view>
+      </view>
+      <view class='p-row'>
+        <view class='left'>商品货号</view>
+        <view class='right'>{{goods.goodsCode}}</view>
+      </view>
+      <!-- <view class='p-row'>
+        <view class='left'>生产日期</view>
+        <view class='right'>2018年4月29日</view>
+      </view> -->
+      <view class='p-row'>
+        <view class='left'>保质期</view>
+        <view class='right'>{{goods.expirationDay}}天</view>
+      </view>
+      <!-- <view class='p-row'>
+        <view class='left'>储存条件</view>
+        <view class='right'>常温</view>
+      </view> -->
+      <!-- <view class='p-row'>
+        <view class='left'>净含量</view>
+        <view class='right'>200g</view>
+      </view> -->
+      <!-- <view class='p-row'>
+        <view class='left'>生产许可证编号</view>
+        <view class='right'>QS3123 2004</view>
+      </view> -->
+      <!-- <view class='p-row'>
+        <view class='left'>产品标准号</view>
+        <view class='right'> GB/T 19855</view>
+      </view> -->
+      <!-- <view class='p-row'>
+        <view class='left'>厂家联系方式</view>
+        <view class='right'>021-56232312</view>
+      </view> -->
+      <view class='full-btn'  data-detail="off" catchtap="detailToggle">我知道啦</view>
+    </view>
+  </view>
+
+
+  <view class='cover' wx:if="{{toggleDetail == 'on'}}" data-detail="off" catchtap="detailToggle"></view>
+</view>

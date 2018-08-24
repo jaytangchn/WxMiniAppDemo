@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "订单",
+  "usingComponents": {
+    "money-text": "../myComponent/money-text/money-text"
+  }
+}

@@ -1,0 +1,16 @@
+<!--pages/mine/mine.wxml-->
+<view class='top-hd'>
+  <view class='avatar' bindtap='imgAction'>
+    <image src='{{user.avatarUrl}}'></image>
+  </view>
+  <view class='user' bindtap='navUser'>
+    <view class='name'>{{user.realName}}</view>
+    <view class='submes' wx:if="{{roleType!='1'}}">{{user.dept.deptName}} / {{user.role.roleName}}<view ></view></view>
+    <view class='submes' wx:if="{{roleType=='1'}}">{{user.partner.partnerName}}</view>
+  </view>
+</view>
+
+<navigator hover-class='none' class='nav-st' url='../salesStatistics/salesStatistics' disabled="{{app.globalData.isLogin}}">
+  <view class='cn'>销售统计</view>
+  <view class='en'>sales statistics</view>
+</navigator>

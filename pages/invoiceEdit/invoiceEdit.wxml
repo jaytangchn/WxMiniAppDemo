@@ -1,0 +1,98 @@
+<!--pages/invoiceEdit/invoiceEdit.wxml-->
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left' style='color:#B9966F' >发票类型</view>
+    <view class='cell-right arrow-right spe' bindtap='importInvoiceFromWx' style='color:#000'>从微信中导入发票信息</view>
+  </view>
+  <view class='inc-items'>
+    <view class='inc-items-row'>
+      <view class='inc-item {{chooseTypeList[0]?"active":""}}' data-index="0" bindtap='chooseType'>个人</view>
+      <view class='inc-item {{chooseTypeList[1]?"active":""}} {{chooseTypeList[0]?"disabled":""}}' disabled="{{chooseTypeList[0]}}" data-index="1" bindtap='chooseType'>增值税专用发票</view>
+      <view class='inc-item disabled'>电子发票</view>
+    </view>
+    <view class='inc-items-row'>
+      <view class='inc-item {{chooseTypeList[3]?"active":""}}'data-index="3" bindtap='chooseType'>单位</view>
+      <view class='inc-item {{chooseTypeList[4]?"active":""}}' data-index="4" bindtap='chooseType'>增值税普通发票</view>
+      <view class='inc-item active'data-index="5">纸质发票</view>
+    </view>
+  </view>
+</view> 
+
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-right'>发票抬头</view>
+     <view class='cell-left '> 
+        <input value='{{invoiceInfo.invoiceTitle}}' data-type="invoiceTitle" bindinput="updateInvoice" style='text-align:right'></input>
+     </view>
+  </view>
+  <view class='signle-cell' wx:if="{{!chooseTypeList[0]}}">
+    <view class='cell-right'>税号</view>
+    <view class='cell-left'>
+        <input value='{{invoiceInfo.taxNo}}' data-type="taxNo" bindinput="updateInvoice" style='text-align:right'></input>
+    </view>
+  </view>
+  <view class='signle-cell'>
+    <view class='cell-left' style='color:#B9966F'>发票内容</view>
+    <view class='cell-right'>
+        <view style='color:#000'>商品类别</view>
+    </view>
+  </view>
+  <view class='signle-cell' wx:if="{{chooseTypeList[1]}}">
+    <view class='cell-right'>开户银行</view>
+    <view class='cell-left'>
+        <input value='{{invoiceInfo.bankName}}' data-type="bankName" bindinput="updateInvoice" style='text-align:right'></input>
+    </view>
+  </view>
+  <view class='signle-cell' wx:if="{{chooseTypeList[1]}}">
+    <view class='cell-right'>银行账户</view>
+    <view class='cell-left'>
+        <input value='{{invoiceInfo.bankNo}}' data-type="bankNo" bindinput="updateInvoice" style='text-align:right'></input>
+    </view>
+  </view>
+</view>
+
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left' style='color:#B9966F'>发票收货信息</view>
+    <view class='cell-right arrow-right spe' bindtap='importAddrFromWx' style='color:#000'>从微信中导入地址信息</view>
+  </view>
+  <view class='signle-cell'>
+    <view class='cell-right'>收货人</view>
+    <view class='cell-left'>
+        <input value='{{invoiceInfo.reciveName}}' data-type="reciveName" bindinput="updateInvoice" style='text-align:right'></input>
+    </view>
+  </view>
+  <view class='signle-cell' >
+    <view class='cell-right'>收货人电话</view>
+    <view class='cell-left'>
+        <input value='{{invoiceInfo.reciveTel}}' data-type="reciveTel" bindinput="updateInvoice" style='text-align:right'></input>
+    </view>
+  </view>
+  <view class='signle-cell' >
+    <view class='cell-right'>收货地址</view>
+    <view class='cell-left'>
+        <input value='{{invoiceInfo.reciveAddr}}' data-type="reciveAddr" bindinput="updateInvoice" style='text-align:right'></input>
+    </view>
+  </view>
+  <!-- <navigator class='addres-mes' hover-class='none'>
+    <view class='left'>
+      <view class='mes-p'>
+        <view class='mes-p-name'>收货人：张三</view>
+         <view class='mes-p-phone'>15467542342</view>
+      </view>
+      <view class='mes-ad'>收货地址：湖南省 长沙市 昌平区 广博新区路100号新区路100号</view>
+    </view>
+    <view class='arrow-right'></view>
+  </navigator> -->
+</view> 
+
+<view class='tipbox'>
+  <view style='margin-bottom:10rpx;'>发票须知：</view>
+  <view>1.开票金额为用户实际支付金额(不含礼品卡)</view>
+  <view>2.电子发票可在确认收货后，在“订单详情“查看</view>
+  <view>3.未随箱寄出的纸质发票会在发货后15-30个工作</view>
+</view>
+
+<view class='fixed-bottom-bar'>
+  <view class='full-btn' bindtap='save'>保存</view>
+</view> 

@@ -1,0 +1,40 @@
+<!--pages/ssDd/ssQd.wxml-->
+<view class='top-searchbox'>
+  <view class='fake-search' bindtap='navSearch' bindtap='navToSearch'>
+    <view class='search-icon'></view>
+    <!-- <view class='search-txt'>搜索</view> -->
+    <picker bindchange="bindPickerChange" range='{{typeList}}' value='{{index}}' range-key='name'>
+      <view  class='pickertxt'>
+           {{typeList[index].name}} 
+      </view>
+    </picker>
+  </view>
+</view>
+
+
+<view class='month-block'>
+  <picker mode='date' fields='month' bindchange="dateChange" start="2018-01-01">
+    <view class='picker arrow-right' >{{date}}</view>
+  </picker>
+</view>
+
+<view class='s-table' id='jxs'>
+  <view class='s-table-tr thead'>
+    <view class='s-table-td col-25'>订单量</view>
+    <view class='s-table-td col-25'>订单金额</view>
+    <view class='s-table-td col-25'>发货量</view>
+    <view class='s-table-td col-25'>发货金额</view>
+  </view>
+
+  <view class='contain' wx:for="{{orderCountList}}" wx:key="{{item.id}}">
+      <view class='tr-title'>{{item.realName}}</view>
+      <view class='s-table-tr'>
+        <view class='s-table-td col-25'>{{item.totalCount}}{{item.unit}}</view>
+        <view class='s-table-td col-25'>￥{{item.totalPrice}}</view>
+        <view class='s-table-td col-25'>{{item.shipOrderCount - item.returnOrderCount}}{{item.unit}}</view>
+        <view class='s-table-td col-25'>￥{{item.shipOrderTotalPrice - item.returnOrderTotalPrice}}</view>
+      </view>
+  </view>
+</view>
+
+<!-- <view class='nomore-tip'>没有更多了</view> -->

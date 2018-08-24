@@ -1,0 +1,86 @@
+/* pages/order/order.wxss */
+page{
+  background-color: #F2F2F2;
+}
+
+.order-card{
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
+.order-card-hd{
+  height: 88rpx;
+  display: flex;
+  border-bottom: 1rpx solid #eee;
+  border-top: 1rpx solid #eee;
+  align-items: center;
+  font-size: 28rpx;
+  justify-content: space-between;
+}
+.order-card-hd-title{
+  height: 58rpx;
+  line-height: 58rpx;
+  border-left: 10rpx solid #B9966F;
+  color: #999999;
+  padding-left: 13rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-shrink: 1;
+}
+.order-card-hd-state{
+  margin: 0 30rpx;
+  flex-shrink: 0;
+  color: #B9966F;
+}
+.order-card-bd{
+  background-color: #FBFBFB;
+  height: 248rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30rpx;
+}
+.order-card-bd .row-mes{
+  width: 100%;
+  font-size: 32rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.order-card-ft{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.order-card-ft .action{
+  height: 58rpx;
+  box-sizing: border-box;
+  line-height: 58rpx;
+  background-color: #B9966F;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 8rpx;
+  margin-right: 30rpx;
+  width: 154rpx;
+  text-align: center;
+}
+.order-card-ft .action.outline{
+  background-color: #fff;
+  color: #B9966F;
+  border: 1rpx solid #B9966F;
+}
+.order-total-tip{
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  color: #999;
+}
+.search-biger{
+  width: 36rpx;
+  height: 36rpx;
+  background-size: cover;
+}

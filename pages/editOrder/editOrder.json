@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "编辑订单",
+  "usingComponents": {
+      "editGoods": "../myComponent/editGoods/editGoods"
+    }
+}

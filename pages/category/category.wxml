@@ -1,0 +1,58 @@
+<!--pages/category/category.wxml-->
+<view class='top-searchbox'>
+  <view class='fake-search' bindtap='navSearch' >
+    <view class='search-icon'></view>
+    <view class='search-txt'>搜索商品</view>
+  </view>
+</view>
+<view class='content'>
+  <view class='nav-lists'>
+    <view wx:for="{{goodsCategorties}}" class="nav-item {{listid==index? 'active':''}}" data-listsid='{{index}}' bindtap='navTab' >{{item}}</view>
+    <!-- <view class="nav-item {{listid==02? 'active':''}}" data-listsid='02' bindtap='navTab'>散装月饼</view>
+    <view class="nav-item {{listid==03? 'active':''}}" data-listsid='03' bindtap='navTab'>盒装月饼</view> -->
+  </view>
+    
+              <view class='nav-contents'>
+              <scroll-view scroll-y='{{ifmove}}' style="height:{{height}}rpx;" bindscrolltolower="lowerEvent">
+                    <view class="nav-content active" >
+                              <view class='item-box' wx:for="{{goodsList}}" data-code="{{item.goodsCode}}" bindtap='gotoDetail'>
+                                    <image src='{{item.imgUrl}}' class='item-image'></image>
+                                    <view class='item-mes'>
+                                          <view class='item-mes-title'>{{item.goodsName}} </view>
+                                          <view class='item-mes-tags'>
+                                            <view class='item-mes-tag'>当季商品</view>
+                                          </view>
+                                          <view class='item-mes-actrow'>
+                                                <view class='item-mes-price'>
+                                                  <text class='small'>￥</text>
+                                                  <text>{{item.tmGoodsSkuListCusts[0].skuPrice}}</text>
+                                                  <!-- <text class='old-price'>￥28.00</text> -->
+                                                </view>
+                                                <view class='item-mes-act' data-index="{{index}}" catchtap='addCart'></view>
+                                          </view>
+                                    </view>
+                              </view>
+                    </view>
+              </scroll-view>
+              </view>
+    
+    
+      
+</view>
+
+<chooseSku id="chooseSku" toggleChoose="{{toggleChoose}}" selectedInfo="{{selectedGoods}}"  bind:changeEvent="refreshSelect" bind:deleteEvent = "refreshDelete"></chooseSku>
+
+<view class='fixed-bottom-bar'>
+     <view class='cart-box' bindtap='lookCar'>
+      <view class='cart-num'>{{total.cnt}}</view>
+    </view> 
+   <view class='aw-btn bg-third cart-money'> 
+      <view>￥{{total.price}}</view>
+       <view class='tip'>（不含运费）</view>
+   </view>
+  <view class='fw-btn bg-primary' bindtap='order'>结算</view>
+</view>
+
+
+  <goodsCart id="goodsCart" show="{{show}}" toggleChoose="{{toggleChoose}}" bind:showGoodsSelectEvent="showGoodsSelect" bind:refreshTotalEvent = "refreshTotal" bind:ifmoveEvent = "ifmove" cartGoods="{{cartGoods}}" randomNumber="{{randomNumber}}">
+  </goodsCart>  

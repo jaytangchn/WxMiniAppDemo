@@ -1,0 +1,59 @@
+<!--pages/ssGoods/ssGoods.wxml-->
+<view class='top-searchbox'>
+  <view class='fake-search' bindtap='navSearch' bindtap='navToSearch'>
+    <view class='search-icon'></view>
+    <view class='search-txt'>搜索</view>
+  </view>
+</view>
+
+<view class='month-block'>
+  <picker mode='date' fields='month' bindchange="dateChange" start="2018-01">
+    <view class='picker arrow-right' >{{date}}</view>
+  </picker>
+
+  <view class='good-tabs'>
+    <view class="tabitem {{tab==01? 'active':''}}" data-tabid='01' bindtap='navTab'>箱数统计</view>
+    <view class="tabitem {{tab==02? 'active':''}}" data-tabid='02' bindtap='navTab'>总数统计</view>
+  </view>
+</view>
+
+<view class=" {{tab==01? 'show':'hidden'}}">
+  <view class='s-table' id='jxs'>
+    <view class='s-table-tr thead'>
+      <view class='s-table-td col-25'>订货箱数</view>
+      <view class='s-table-td col-25'>订单金额</view>
+      <view class='s-table-td col-25'>发货箱数</view>
+      <view class='s-table-td col-25'>发货金额</view>
+    </view>
+    <view wx:for="{{orderCountList}}" wx:key="{{item.code}}">
+      <view class='tr-title' style='background-color:#fbfbfb;'>{{item.name}}</view>
+      <view class='s-table-tr' style='background-color:#fbfbfb;'>
+        <view class='s-table-td col-25'>{{item.salePackCount}}+{{item.saleCount}}</view>
+        <view class='s-table-td col-25'>￥{{item.saleRealTotal}}</view>
+        <view class='s-table-td col-25'>{{item.shipPackCount}}+{{item.shipCount}}</view>
+        <view class='s-table-td col-25'>￥{{item.shipRealTotal}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class=" {{tab==02? 'show':'hidden'}}">
+  <view class='s-table' id='jxs'>
+    <view class='s-table-tr thead'>
+      <view class='s-table-td col-25'>订货总数</view>
+      <view class='s-table-td col-25'>订单金额</view>
+      <view class='s-table-td col-25'>发货总数</view>
+      <view class='s-table-td col-25'>发货金额</view>
+    </view>
+    <view wx:for="{{orderCountList}}" wx:key="{{item.code}}">
+      <view class='tr-title' style='background-color:#fbfbfb;'>{{item.name}}</view>
+      <view class='s-table-tr' style='background-color:#fbfbfb;'>
+        <view class='s-table-td col-25'>{{item.saleTotalCount}}</view>
+        <view class='s-table-td col-25'>￥{{item.saleRealTotal}}</view>
+        <view class='s-table-td col-25'>{{item.shipTotalCount}}</view>
+        <view class='s-table-td col-25'>￥{{item.shipRealTotal}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='nomore-tip'>没有更多了</view>

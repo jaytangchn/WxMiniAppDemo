@@ -1,0 +1,3 @@
+/* pages/waitCheck/waitCheck.wxss */
+@import '../sure/sure.wxss';
+@import '../checkOrder/checkOrder.wxss';

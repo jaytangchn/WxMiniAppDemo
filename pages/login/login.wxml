@@ -1,0 +1,21 @@
+<!--pages/login/login.wxml-->
+<view class='logo-box'>
+  <image src='../../images/logo.png' class='logo'></image>
+</view>
+<form class='login-form'>
+  <view class='form-items'>
+    <input placeholder='请输入手机号' type='number' value='{{mobileNo}}' bindinput='mobileNoInput'></input>
+  </view>
+  <view class='form-items'>
+    <input placeholder='请输入验证码' maxlength='6' type='number' value='{{smsCode}}' bindinput='smsCodeInut'></input>
+    <button  class='code-btn block-btn' disabled="{{unauthorized}}" bindtap='getCheckCode'>{{smsCodeGetStr}}</button >
+  </view>
+</form>
+<view class='block-btn-box'>
+  <view class='block-btn' bindtap='login' wx:if="{{!unauthorized}}">登录</view>
+  <button class="block-btn"  wx:if="{{unauthorized}}" bindgetuserinfo="bindGetUserInfo" open-type="getUserInfo"  > 请先点击授权 </button>
+</view>
+<view>
+
+</view>
+<view class='login-tip'>如手机号码暂不能用，请联系管理人员进行处理</view>

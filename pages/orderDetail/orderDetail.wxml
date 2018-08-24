@@ -1,0 +1,323 @@
+<!--pages/hasApproval/hasApproval.wxml-->
+<view class='order-tip-block'>
+  <image src='../../images/ok.png'></image>
+  <text>{{orders.status.desc}}</text>
+</view>
+<view class='tab-block'>
+  <view class='tabs-box'>
+    <view class="tab-item {{tab==01? 'active':''}}" data-tabid='01' bindtap='navTab'>基本信息</view>
+    <view class="tab-item {{tab==02? 'active':''}}" data-tabid='02' bindtap='navTab'>订单商品</view>
+    <view class="tab-item {{tab==03? 'active':''}}" data-tabid='03' bindtap='navTab'>发货详情</view>
+  </view>
+</view>
+
+<view class="{{tab==01? 'show':'hidden'}}">
+  <view class='cells'>
+    <view class='signle-cell'>
+      <view class='cell-left'>订单编号</view>
+      <view class='cell-right'>{{orders.ordersCode}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>订单日期</view>
+      <view class='cell-right'>{{orders.createTimeStr}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>客户编号</view>
+      <view class='cell-right'>{{xdPartner.partnerCode}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>下单客户</view>
+      <view class='cell-right'>{{xdPartner.partnerName}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>结算客户</view>
+      <view class='cell-right'>{{jsPartner.partnerName}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>期望发货日期</view>
+      <view class='cell-right'>{{orders.ordersDateStr}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>制单人</view>
+      <view class='cell-right'>{{orders.ownerUname}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>业务员</view>
+      <view class='cell-right'>{{orders.selamanName}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>审批人</view>
+      <view class='cell-right'>{{orders.extData.checkUname}}</view>
+    </view>
+  </view>
+  <view class='cells sp'>
+    <view class='tip'>
+      <view class='tip-l' style='color:#B9966F'>备注</view>
+      <view class='tip-r'>{{orders.remark}}</view>
+    </view>
+  </view>
+  <view class='cells sp'>
+    <view class='sp-title'>付款信息</view>
+    <view class='signle-cell'>
+      <view class='cell-left'>订单金额</view>
+      <view class='cell-right'>￥{{orders.ordersSettleMoneyStr}}</view>
+    </view>
+  </view>
+
+  <view class='cells sp' wx:if="{{orders.extData.invoiceInfo != null}}">
+    <view class='sp-title'>发票信息</view>
+
+
+    <!--
+    <view class='signle-cell'>
+      <view class='cell-left'>发票类型</view>
+      <view class='cell-right'>
+        <view class='tag' wx:if="{{orders.extData.invoiceInfo.isPaperInvoice=='1'}}">纸质发票</view>
+        <text>增值税{{orders.extData.invoiceInfo.isCommonInvoice=='1'?'普通':'专用'}}发票</text>
+      </view>
+    </view>
+    -->
+
+    <view class='signle-cell'>
+      <view class='cell-left'>发票抬头</view>
+      <view class='cell-right'>{{orders.extData.invoiceInfo.invoiceTitle}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>税号</view>
+      <view class='cell-right'>{{orders.extData.invoiceInfo.taxNo}}</view>
+    </view>
+
+    <!--
+    <view class='signle-cell'>
+      <view class='cell-left'>开户银行</view>
+      <view class='cell-right'>{{orders.extData.invoiceInfo.bankName}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>开户账号</view>
+      <view class='cell-right'>{{orders.extData.invoiceInfo.bankNo}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>地址</view>
+      <view class='cell-right'>{{orders.extData.invoiceInfo.reciveName}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>发票内容</view>
+      <view class='cell-right'>商品类别</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>发票随货</view>
+      <view class='cell-right'>{{orders.extData.invoiceInfo.deliverType=='1'?'是':'否'}}</view>
+    </view>
+    -->
+  </view>
+
+
+  <view class='cells sp' style='margin-bottom:20rpx;' wx:if="{{jsAddress!=null && jsAddress.id!=null}}" >
+    <view class='sp-title'>发票寄送信息</view>
+    <view class='signle-cell'>
+      <view class='cell-left'>收货人姓名</view>
+      <view class='cell-right'>{{jsAddress.name}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>手机号码</view>
+      <view class='cell-right'>{{jsAddress.mobile}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>固定电话</view>
+      <view class='cell-right'>{{jsAddress.tel}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-right' style='color:#666'>详细地址</view>
+      <view class='cell-left' style='color:#000;text-align:right;margin-right:0'>{{jsAddress.addrInfo}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>邮编</view>
+      <view class='cell-right'>{{jsAddress.zip}}</view>
+    </view>
+  </view>
+  <view class='cells sp' style='margin-bottom:20rpx;'>
+    <view class='sp-title'>收货地址信息</view>
+    <view class='signle-cell'>
+      <view class='cell-left'>收货人姓名</view>
+      <view class='cell-right'>{{shAddress.name}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>手机号码</view>
+      <view class='cell-right'>{{shAddress.mobile}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>固定电话</view>
+      <view class='cell-right'>{{shAddress.tel}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-right' style='color:#666'>详细地址</view>
+      <view class='cell-left' style='color:#000;text-align:right;margin-right:0'>{{shAddress.addrInfo}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>邮编</view>
+      <view class='cell-right'>{{shAddress.zip}}</view>
+    </view>
+  </view>
+</view>
+<view class="{{tab==02? 'show':'hidden'}}">
+  <view class='order-item-list'>
+
+
+
+
+
+
+
+
+
+
+<view class='order-detail-items' wx:for="{{goodsList}}" wx:for-index="index">
+      <view class="order-detail-item  toggle-item {{ od==true? 'open':''}}" bindtap='odToggle'>
+        <view class='order-detail-item-hd'>
+          <view class='hd-left'>
+            <view class='hd-left-top'>
+              <view>{{item.goodsName}}</view>
+              <view>{{item.bzgg}}</view>
+            </view>
+            <view class='hd-left-bottom'>
+              <view class='hd-left-bottom-item'>订单数:{{item.packCount}}+{{item.count}}</view>
+              <view class='hd-left-bottom-item b'>待发数:{{item.shouldPackCount}}+{{item.shouldCount}}</view>
+              <view class='hd-left-bottom-item'>实发数:{{item.alreadyPackCount}}+{{item.alreadyCount}}</view>
+            </view>
+          </view>
+          <view class='arrow-right'></view>
+        </view>
+      </view>
+      <view class="cells {{ od==true? 'show':'hidden' }}">
+        <view class='signle-cell'>
+          <view class='cell-left'>订货总数</view>
+          <view class='cell-right'>{{item.totalCount}}{{item.unit}}</view>
+        </view>
+        <view class='signle-cell'>
+          <view class='cell-left'>单价</view>
+          <view class='cell-right'>¥{{item.realPrice}}</view>
+        </view>
+        <view class='signle-cell'>
+          <view class='cell-left'>折扣</view>
+          <view class='cell-right'>{{item.discountRatio*100}}%</view>
+        </view>
+        <view class='signle-cell'>
+          <view class='cell-left'>总价</view>
+          <view class='cell-right'>¥{{item.realTotal}}</view>
+        </view>
+        <!-- <view class='signle-cell'>
+          <view class='cell-left'>第一次发货</view>
+          <view class='cell-right'>5+0</view>
+        </view> -->
+        <view class='signle-cell'>
+          <view class='cell-left'>待发货数量</view>
+          <view class='cell-right'>{{item.shouldPackCount}}+{{item.shouldCount}}</view>
+        </view>
+      </view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+  </view>
+</view>
+<view class="{{tab==03? 'show':'hidden'}}" style='padding-bottom:96rpx;'>
+
+
+
+
+
+
+
+<view wx:for="{{deliverList}}" wx:for-index="index">
+    <view class='cells sp'>
+      <view class='sp-title'>
+        <view>第{{index+1}}次发货</view>
+        <view wx:if="{{item.waybillStatus.value=='drp_orders_status.delivery_wait_for_receive'}}" data-id="{{item.waybillId}}" bindtap="affirmReceive" class="qrsh">确认收货</view>
+        
+         <view>{{item.waybillStatus.desc}}</view> 
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>发货单号</view>
+        <view class='cell-right'>{{item.waybillId}}</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>发货部门</view>
+        <view class='cell-right'>{{item.outDeptName}}</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>发货仓库</view>
+        <view class='cell-right'>{{item.outStorageName}}</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>发货日期</view>
+        <view class='cell-right'>{{item.createTimeStr}}</view>
+      </view>
+    </view>
+     <view class='cells sp'>
+      <view class='sp-title'>
+        <view>发货商品</view>
+        <view>{{item.waybillStatus.desc}}</view>
+      </view>
+      <view class='signle-cell gray' wx:for="{{item.waybillDetailList}}" wx:for-index="index">
+        <view class='cell-left'>{{item.goodsName}}</view>
+        <view class='cell-right'>{{item.packCount}}+{{item.count}}</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>合计</view>
+        <view class='cell-right'>{{item.packCount}}+{{item.count}}</view>
+      </view>
+    </view>
+    
+    
+    <view class="toggle-item {{ mail==true? 'open':''}}">
+      <view class='cells sp'>
+        <view class='sp-title' bindtap='mailToogle'>
+            <view>物流信息</view>
+            <view class='arrow-right' style='font-size:26rpx;color:#999'>{{item.updateTimeStr}} {{item.waybillStatus.desc}}</view>
+        </view>
+      </view>
+      <view class="mailbox {{ mail==true? 'show':'hidden' }}">
+          <view wx:if="{{item.waybillStatus.value=='drp_orders_status.delivery_receive'}}" class='mail-item'>
+            <view class='content'>[已送达] 客户已签收</view>
+            <view class='time'>{{item.updateTimeStr}}</view>
+          </view>
+          <view class='mail-item'>
+            <view class='content'>[已发货] 已为您派件</view>
+            <view class='time'>{{item.creatTimeStr}}</view>
+          </view>
+      </view>
+    </view>
+    
+</view>
+<view class='tip'>
+  <image src='../../images/warn.png'></image>
+  <text>如对本订单有任何异议，请联系业务员进行处理</text>
+</view>
+
+
+
+
+</view>
+<view class='fixed-bottom-bar' wx:if="{{orders.submitButton || orders.affirmPassButton ||orders.affirmRejectButton || orders.checkPassButton || orders.checkRejectButton || orders.invalidButton}}">
+  <view wx:if="{{orders.submitButton}}" bindtap='update' data-operate='pass' class='fw-btn bg-second'  style='flex:1;'>提交确认</view>
+  <view wx:if="{{orders.affirmPassButton}}" bindtap='update' data-operate='pass' class='fw-btn bg-primary'  style='flex:1'>提交审核</view>
+  <view wx:if="{{orders.affirmRejectButton}}" bindtap='update' data-operate='reject' class='fw-btn bg-second'  style='flex:1'>驳回</view>
+  <view wx:if="{{orders.checkPassButton}}" bindtap='update' data-operate='pass' class='fw-btn bg-primary'  style='flex:1'>审核通过</view>
+  <view wx:if="{{orders.checkRejectButton}}" bindtap='update' data-operate='reject' class='fw-btn bg-second'  style='flex:1'>审核驳回</view>
+  <view wx:if="{{orders.invalidButton}}" bindtap='update' data-operate='invalid' class='fw-btn bg-primary'  style='flex:1'>取消订单</view>
+</view>
+
+
+
+
+
+
+

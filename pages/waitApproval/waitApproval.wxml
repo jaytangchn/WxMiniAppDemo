@@ -1,0 +1,199 @@
+<!--pages/waitApproval/waitApproval.wxml-->
+<!--pages/waitCheck/waitCheck.wxml-->
+<view class='order-tip-block'>
+  <image src='../../images/ok.png'></image>
+  <text>待审批</text>
+</view>
+<view class='tab-block'>
+  <view class='tabs-box'>
+    <view class="tab-item {{tab==01? 'active':''}}" data-tabid='01' bindtap='navTab'>基本信息</view>
+    <view class="tab-item {{tab==02? 'active':''}}" data-tabid='02' bindtap='navTab'>订单商品</view>
+  </view>
+</view>
+
+<view class="{{tab==01? 'show':'hidden'}}">
+  <view class='cells'>
+    <view class='signle-cell'>
+      <view class='cell-left'>订单编号</view>
+      <view class='cell-right'>1122334455667788</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>订单日期</view>
+      <view class='cell-right'>2018-03-15</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>客户编号</view>
+      <view class='cell-right'>0315</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>结算客户</view>
+      <view class='cell-right'>湖南振利软件科技有限公司</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>送达客户</view>
+      <view class='cell-right'>湖南振利</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>期望发货日期</view>
+      <view class='cell-right'>2018-03-20</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>制单人</view>
+      <view class='cell-right'>张三</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>业务员</view>
+      <view class='cell-right'>李四</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>审批人</view>
+      <view class='cell-right'>王五</view>
+    </view>
+  </view>
+  <view class='cells sp'>
+    <view class='signle-cell'>
+      <view class='cell-left' style='color:#B9966F'>备注</view>
+      <view class='cell-right'>青团生产日期要15日以后</view>
+    </view>
+  </view>
+  <view class='cells sp'>
+    <view class='sp-title'>付款信息</view>
+    <view class='signle-cell'>
+      <view class='cell-left'>结算方式</view>
+      <view class='cell-right'>合约结款</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>支付方式</view>
+      <view class='cell-right'>信用额度</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>支付金额</view>
+      <view class='cell-right'>￥10,000.00</view>
+    </view>
+  </view>
+  <view class='cells sp'>
+    <view class='sp-title'>发票信息</view>
+    <view class='signle-cell'>
+      <view class='cell-left'>发票编号</view>
+      <view class='cell-right'>1122334455667788</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>发票类型</view>
+      <view class='cell-right'>
+        <view class='tag'>纸质发票</view>
+        <text>增值税专用发票</text>
+      </view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>发票抬头</view>
+      <view class='cell-right'>湖南振利软件科技有限公司</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>税号</view>
+      <view class='cell-right'>1122334455667788</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>开户银行</view>
+      <view class='cell-right'>招商银行</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>开户账号</view>
+      <view class='cell-right'>1122334455667788</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>地址</view>
+      <view class='cell-right'>湖南省长沙市铭诚摩根1601</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>发票内容</view>
+      <view class='cell-right'>明细</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>发票随货</view>
+      <view class='cell-right'>是</view>
+    </view>
+  </view>
+  <view class='cells sp' style='margin-bottom:20rpx;'>
+    <view class='sp-title'>发票地址信息</view>
+    <view class='signle-cell'>
+      <view class='cell-left'>收货人姓名</view>
+      <view class='cell-right'>张三</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>手机号码</view>
+      <view class='cell-right'>15676673231</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>固定电话</view>
+      <view class='cell-right'>0731-11223388</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>地区</view>
+      <view class='cell-right'>湖南省长沙市雨花区</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>详细地址</view>
+      <view class='cell-right'>铭诚摩根1601</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>邮编</view>
+      <view class='cell-right'>410000</view>
+    </view>
+  </view>
+</view>
+<view class="{{tab==02? 'show':'hidden'}}">
+  <view class='order-item-list'>
+    <view class='order-detail-items'>
+      <view class="order-detail-item  toggle-item {{ od==true? 'open':''}}" bindtap='odToggle'>
+        <view class='order-detail-item-hd'>
+          <view class='hd-left'>
+            <view class='hd-left-top'>
+              <view>#134001单只青团70g</view>
+              <view>60只/箱</view>
+            </view>
+            <view class='hd-left-bottom'>
+              <view class='hd-left-bottom-item'>订单数:7+0</view>
+              <view class='hd-left-bottom-item b'>待发数:1+0</view>
+              <view class='hd-left-bottom-item'>实发数:6+0</view>
+            </view>
+          </view>
+          <view class='arrow-right'></view>
+        </view>
+      </view>
+      <view class="cells {{ od==true? 'show':'hidden' }}">
+        <view class='signle-cell'>
+          <view class='cell-left'>订货总数</view>
+          <view class='cell-right'>120只</view>
+        </view>
+        <view class='signle-cell'>
+          <view class='cell-left'>单价</view>
+          <view class='cell-right'>¥8.88</view>
+        </view>
+        <view class='signle-cell'>
+          <view class='cell-left'>折扣</view>
+          <view class='cell-right'>100.00%</view>
+        </view>
+        <view class='signle-cell'>
+          <view class='cell-left'>总价</view>
+          <view class='cell-right'>¥1,000.00</view>
+        </view>
+        <view class='signle-cell'>
+          <view class='cell-left'>第一次发货</view>
+          <view class='cell-right'>5+0</view>
+        </view>
+        <view class='signle-cell'>
+          <view class='cell-left'>待发货数量</view>
+          <view class='cell-right'>3+0</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='fixed-bottom-bar'>
+  <view class='fw-btn bg-third' style='flex:1;color:#B9966F'>取消订单</view>
+  <view class='fw-btn bg-second'  style='flex:1'>审批驳回</view>
+  <view class='fw-btn bg-primary'  style='flex:1'>审批通过</view>
+</view>
+
+

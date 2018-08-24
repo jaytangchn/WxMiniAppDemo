@@ -1,0 +1,27 @@
+/* pages/mineMes/mineMes.wxss */
+page{
+  background-color: #F2F2F2
+}
+.cells .signle-cell{
+  font-size: 28rpx;
+  height: 70rpx;
+}
+.cells .signle-cell .cell-left{
+  color: #777;
+}
+.cells .signle-cell .cell-right{
+  color: #333;
+}
+.cells.sp{
+  margin-top: 20rpx;
+}
+.cells.sp .sp-title{
+  height: 96rpx;
+  line-height: 96rpx;
+  font-size: 30rpx;
+  color: #B9966F;
+  padding:0 30rpx;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  justify-content: space-between;
+}

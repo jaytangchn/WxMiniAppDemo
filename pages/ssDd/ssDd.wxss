@@ -1,0 +1,117 @@
+/* pages/ssDd/ssDd.wxss */
+page{
+  background-color: #F2F2F2
+}
+.month-block{
+  height: 98rpx;
+  display: flex;
+  padding: 0 30rpx;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+}
+.month-block .picker{
+  height: 58rpx;
+  line-height: 58rpx;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  padding-left: 30rpx;
+  padding-right: 60rpx;
+  display: flex;
+}
+.month-block .picker.arrow-right::after{
+  right: 30rpx;
+}
+.s-table{
+  background-color: #fff;
+}
+.s-table-tr{
+  display: flex;
+  border-bottom: 1rpx solid #eee;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.s-table-tr.thead{
+  border-top: 1rpx solid #eee;
+  height: 96rpx;
+  line-height: 96rpx;
+  color: #999;
+}
+.s-table-tr .s-table-td.col-full{
+  flex-shrink: 1;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.s-table-tr .s-table-td{
+  flex-shrink: 0;
+  padding: 0 10rpx;
+  border-right: 1rpx solid #eee;
+  box-sizing: border-box;
+  text-align: center;
+}
+.s-table-tr .s-table-td:last-child{
+  border-right: none
+}
+#dd .col3{
+  width: 100rpx;
+}
+#dd .col4{
+  width:200rpx;
+}
+.nomore-tip{
+  height: 110rpx;
+  line-height: 110rpx;
+  text-align: center;
+  color: #999;
+}
+.s-table .col-25{
+  width: 25%;
+}
+.tr-title{
+  border-bottom: 1rpx solid #eee;
+  height: 70rpx;
+  line-height: 70rpx;
+  padding: 0  40rpx;
+}
+.good-tabs .tabitem{
+  display: inline-block;
+  height: 28rpx;
+  line-height: 28rpx;
+  color: #777;
+  border-right: 1rpx solid #ccc;
+  padding: 0 25rpx;
+}
+.good-tabs .tabitem:last-child{
+  border-right: none;
+  padding-right: 0;
+}
+.good-tabs .tabitem.active{
+  color: #B9966F;
+}
+
+.ser-picker{
+  width: 620rpx;
+  height: 57rpx;
+  position: absolute;
+  top:25rpx;
+  left: 65rpx;
+}
+.s-table .thead{
+  background: #fff;
+}
+.s-table .contain:nth-child(odd){
+  background: #fff;
+}
+.s-table .contain:nth-child(even){
+  background: #fbfbfb;
+}
+
+.top-searchbox .search-icon{
+  margin-right: 10rpx;
+}
+.pickertxt{
+  font-size: 32rpx;
+  color: #999
+}

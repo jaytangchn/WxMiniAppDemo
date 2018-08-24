@@ -1,0 +1,17 @@
+/* pages/ssGoods/ssGoods.wxss */
+@import '../ssDd/ssDd.wxss';
+@import '../partner/partner.wxss';
+.img-box{
+  margin: 300rpx 0;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+.img-box image{
+  width: 230rpx;
+  height: 293rpx;
+}
+.no-partner .tip{
+  font-size: 34rpx;
+  text-align: center;
+  color: #999999;
+}

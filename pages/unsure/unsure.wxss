@@ -1,0 +1,2 @@
+/* pages/unsure/unsure.wxss */
+@import '../checkOrder/checkOrder.wxss';

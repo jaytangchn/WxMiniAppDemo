@@ -1,0 +1,2 @@
+/* pages/waitApproval/waitApproval.wxss */
+@import '../waitCheck/waitCheck.wxss'

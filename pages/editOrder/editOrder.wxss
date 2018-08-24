@@ -1,0 +1,154 @@
+/* pages/checkOrder/checkOrder.wxss */
+page{
+  background: #F2F2F2!important;
+  padding-bottom: 96rpx;
+}
+.cells{
+  margin-bottom: 20rpx;
+}
+.cells .signle-cell{
+  height: 96rpx;
+  font-size: 30rpx;
+}
+.signle-cell .cell-left{
+  color: #B9966F
+}
+.signle-cell .empty.cell-left{
+  margin-left: 30rpx;
+  text-align: right;
+  color: #333;
+}
+.signle-cell .hasadd{
+  color:#333;
+}
+
+.addres-mes{
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.addres-mes .arrow-right{
+  flex-shrink: 0;
+  height: 80rpx;
+}
+.addres-mes .left{
+  width: 100%;
+  flex-shrink: 1;
+  overflow: hidden;
+}
+.addres-mes .left .mes-p{
+  font-size: 32rpx;
+  display: flex;
+  height: 50rpx;
+  line-height: 50rpx;
+  justify-content: space-between;
+}
+.addres-mes .left .mes-ad{
+  font-size: 28rpx;
+  line-height: 36rpx;
+  color: #777;
+  margin-top: 10rpx;
+}
+.invoice-mes{
+  height: 198rpx;
+  display: flex;
+  padding: 0 30rpx;
+  align-items: center;
+}
+.invoice-mes .arrow-right{
+  flex-shrink: 0;
+  height: 60rpx;
+}
+.invoice-mes .left{
+  width: 100%;
+  flex-shrink: 1;
+  overflow: hidden;
+}
+.invoice-mes .invoice-mes-row{
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 46rpx;
+  line-height: 46rpx;
+}
+.invoice-mes .invoice-mes-row .t{
+  color: #999;
+  width: 140rpx;
+  display: inline-block;
+}
+.order-item{
+  height: 230rpx;
+  display: flex;
+  padding: 0 30rpx;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+}
+.cells .order-item:last-child{
+  border-bottom: none
+}
+.order-item .order-item-image{
+  width: 170rpx;
+  height: 170rpx;
+  border-radius: 6rpx;
+  flex-shrink: 0;
+}
+.order-item .order-item-mes{
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 1;
+  margin-left: 30rpx;
+  height: 170rpx;
+}
+.order-item .first-row{
+  height: 50rpx;
+  line-height: 35rpx;
+  font-size: 32rpx;
+  display: flex;
+}
+.order-item .first-row .order-item-title{
+  overflow:hidden; 
+  flex-shrink: 1;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.order-item .first-row .order-item-act{
+  flex-shrink: 0;
+  margin-left: 20rpx!important;
+}
+.order-item .second-row{
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #999;
+  overflow: hidden;
+  margin-right: 50rpx;
+}
+.order-item .third-row{
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-top: 10rpx;
+  color: #999;
+  display: flex;
+  justify-content: space-between;
+}
+.order-item .order-item-price{
+  color: #E66363;
+  font-size: 32rpx;
+  display: flex;
+}
+.order-item .order-item-price .i{
+  font-size: 24rpx;
+}
+.order-item .order-item-price .old{
+  text-decoration: line-through;
+  font-size: 22rpx;
+  color: #999;
+  margin-left: 10rpx;
+}
+.first-row .order-item-act .icon-bianji{
+  width: 45rpx;
+  height: 45rpx;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAEN0lEQVRoQ+2aXWgcVRTH/+du2hiQhjQptWDRB19K/ChiH/TJQtzZRoUGbIqg4EdN46SZXaNC0QeDIEFssTPJbEw/0Ic+lMTPhyaZZG0Ui770SUUtIvgQSLEtEh9abTL3yMzuxrXZzUwmszOLZp+Wveeec373nHP3zp1D+I98qBzH6Oi+ROPVbTuYcS9AdxGzqBYvA78rqmEQgf3YGDd6t9CGRKuwWSavNJ2n/n7pzFsGYmUze5jlcSK63Y/iMGQY8pGUOpjz0jX5Xu99kGKCgG2OLDN/luox9i4DsbLaOwC94qUwzHEGX2PQ/XtU/eJKeieHXmqFsL8iUFOpHEluSx4yPl+KiJXVugAayQsxM3AawAwYv7IQvsIeBFCIxUvKwaGfgkAUIvF0UtVPuyAz7z9zy41rm2ZB1OxiQD6WUgfPBnEs7DlTZmanJHnu5kgU7ZCwdyW7hy64IFPDWgczfVwY/EhR9SfCdiiIPhcC8ksi2lRh/oSi6u1LNWKZ2gCIDrvRkLw/dcgYDWI4zDleEAx8IRdlql0b/KsEJH0ShOddR4jvUV40vg/TqdXqWi1EaUROgeg554eEkK1t3YM/rNZ4WPJBIGoOJChETYHkzPSuRXCuYmEzpm1bPl6siZszwN21LFOLNbUcCBt8DkS3lk1RxnRz3fVHHzh4fKFSCscOEgZE7KkVFkSsIGFCxAYSBoRl9m1nWrjzj5ZLX3d2jtmR14gXBANnWxLXO1Yq7OmRrka52HARhK0Av6aoxkCkIJapPeRskpV2Jwei/remvbv7+xdX+oN1jvQkZP70wTil9OgHIgPJQ1AOhIZyTvqFcObGBhImRGwgYUPEAlINiMhBvCDA/MnGy5s7vQq7XD1FViN+IOa3zO1z9v8gx/9IQCaGMw8LyeOVdicnEmuBiCS1Zkz1thuo+7nyKXbtEJGATJrpl4lwpPxRPByISECmslofg44uAwkhnUp1Vr1GcifSW+0FODeGjf8Y5jPzLXNPBS3s2HatwiPrABHqwPgmeXnz68WL5iA7VGwgYTlbs4fGMAGrXiNhOrsekVq5afQT1fXU8rNKUcqsRyTK1fZj6/8Qkdp60eMVFWtYuxtM3+Vvg/hkSjVecK+DJrPaUQL1Od8J6Eyq+piXsjjHLTO9H4QzBX/fTqr64SLIAQKdyBPCSql6Kk5HvWxbpjYGosILW+pQ1GOfuiBOW4SoE7MEbCzAvJlS9Te8FMYxPjWktbMg99U5A1fqG+a37372gz9LGgbS7wLILDnHPM6ED6vdMOBnMQQgmOUdANoIeBIg129idCd7dLfJYQlk3OitFwkxQ4QH/SiPX4aPKKrxatGPfzXVXBjp2nDVbniLGc6zd9U6gtayCMw8SyS6FPXYRKmesm1O02ZmhyTZBobb0hH3hwBbEn4hwrfzzXM/lntsLgsSt+NB7P8N+d5GYHuyxFQAAAAASUVORK5CYII=);
+  background-size: cover;
+}

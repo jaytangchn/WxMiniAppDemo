@@ -1,0 +1,71 @@
+<!--pages/partnerDetail/partnerDetail.wxml-->
+<view class='userbox'>
+  <view class='user-avatar'>业务员</view>
+  <view class='user-name'>{{userClientInfo.realName}}</view>
+</view>
+
+<view class='tab-block'>
+  <view class='tabs-box'>
+    <view class="tab-item {{tab==01? 'active':''}}" data-tabid='01' bindtap='navTab'>基本信息</view>
+    <view class="tab-item {{tab==02? 'active':''}}" data-tabid='02' bindtap='navTab' wx:if="{{showAll}}">关联客户</view>
+    <view class="tab-item {{tab==03? 'active':''}}" data-tabid='03' bindtap='navTab' wx:if="{{showAll}}">相关订单</view> 
+  </view>
+</view>
+
+<view class="{{tab==01? 'show':'hidden'}}">
+  <view class='cells'>
+    <view class='signle-cell'>
+      <view class='cell-left'>姓名</view>
+      <view class='cell-right'>{{userClientInfo.realName}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>手机</view>
+      <view class='cell-right' bindtap='call'><text class='number'>{{userClientInfo.userMobile}}</text></view>
+    </view>
+  </view>
+  <view class='cells sp'>
+    <view class='sp-title'>公司信息</view>
+    <view class='signle-cell'>
+      <view class='cell-left'>所属部门</view>
+      <view class='cell-right'>{{userClientInfo.deptName}}</view>
+    </view>
+    <view class='signle-cell'>
+      <view class='cell-left'>职位</view>
+      <view class='cell-right'>业务员</view>
+    </view>
+  </view>
+</view>
+
+<view class=" {{tab==02? 'show':'hidden'}}">
+  <view class='media-cells'>
+  <view wx:for='{{relateClientInfo}}' data-partner='{{item.roleType}}' data-id='{{item.partnerID}}' wx:key='unique' class='media-cell' hover-class='none' bindtap='goPartner'>
+    <view class='media-cell-hd'>
+      <view class='avatar-txt high'>{{item.roleName}}</view>
+    </view>
+    <view class='media-cell-bd'>
+      <view class='title'>{{item.realName}} {{item.mobile}}</view>
+      <view class='submes'>{{item.comName}}</view>
+    </view>
+    <view class='media-cell-ft'>
+      <view class='arrow-right'></view>
+    </view>
+  </view>
+  </view>
+   <!-- <view class='order-total-tip'>关联客户：5</view> -->
+</view>
+
+<view class="{{tab==03? 'show':'hidden'}}">
+  <view class='order-cards'  wx:for="{{orderList}}">
+    <view class='order-card'>
+      <view class='order-card-hd'>
+        <view class='order-card-hd-title'>{{item.ordersCode}}</view>
+        <view class='order-card-hd-state'>{{item.status.desc}}</view>
+      </view>
+      <view class='order-card-bd' >
+        <view class='row-mes'>订单金额：¥{{item.ordersSettleMoney}}</view>
+        <view class='row-mes'>结算客户：{{item.partnerName}}</view>
+        <view class='row-mes'>订单日期：{{item.date}}</view>
+      </view>
+    </view>
+  </view>
+</view>

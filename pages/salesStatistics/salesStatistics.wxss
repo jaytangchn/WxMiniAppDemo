@@ -1,0 +1,86 @@
+/* pages/salesStatistics/salesStatistics.wxss */
+page{
+  background-color: #F2F2F2
+}
+.ss-block{
+  padding: 30rpx;
+}
+.ss-item{
+  display: flex;
+  height: 180rpx;
+  flex-direction: column;
+  padding: 40rpx 50rpx;
+  box-sizing: border-box;
+  margin-bottom: 10rpx;
+  border-radius: 30rpx 30rpx 0 0;
+}
+.ss-item .ss-item-hd{
+  font-size: 50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  display: flex;
+  justify-content: space-between
+}
+.ss-item .ss-item-ft{
+  font-size: 28rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  display: flex;
+  justify-content: space-between
+}
+.ss-item .left{
+  color: #D0A971;
+}
+.ss-item .right{
+  color: #A6732B;
+}
+.ss-item.s01{
+  background-color: #FFDDAC
+}
+
+.ss-item.s02{
+  background-color: #F9D0A8
+}
+.ss-item.s02 .left{
+  color: #C5986B
+}
+.ss-item.s02 .right{
+  color: #9A6430
+}
+.ss-item.s03{
+  background-color: #F5BC9D
+}
+.ss-item.s03 .left{
+  color: #C78663
+}
+.ss-item.s03 .right{
+  color: #A75D34
+}
+
+.gird-box{
+  background-color: #fff;
+  margin-top: -40rpx;
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, .2);
+}
+.gird-row{
+  display: flex;
+  padding: 30rpx 0;
+}
+.gird-row .gird-item{
+  flex: 1;
+  text-align: center;
+  border-right: 1rpx solid #ccc;
+}
+.gird-row .gird-item:last-child{
+  border-right: none
+}
+.gird-row .gird-icon{
+  width: 76rpx;
+  height: 76rpx;
+  display: inline-block
+}
+.gird-row .gird-txt{
+  text-align: center;
+  height: 40rpx;
+  line-height: 40rpx;
+}

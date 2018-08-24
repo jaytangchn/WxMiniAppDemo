@@ -1,0 +1,66 @@
+/* pages/receiveAddress/receiveAddress.wxss */
+page{
+  background: #f2f2f2;
+  font-size:28rpx;
+  padding-bottom: 90rpx;
+}
+
+.receive-info{
+  background: #fff;
+  margin-bottom:20rpx;
+}
+.receive-info .receive-person,.set{
+  height: 89rpx;
+  line-height: 89rpx;
+  padding:0 30rpx;
+  border-bottom:1px solid #eee;
+}
+.receive-info .receive-address{
+  background: #fbfbfb;
+  padding:0 30rpx;
+  height:130rpx;
+  line-height: 130rpx;
+  font-size:34rpx;
+}
+.receive-name,.defult{
+  flex:1
+}
+.receive-tel,.edit{
+  flex:2;
+  text-align: right;
+}
+.defult image{
+  width:32rpx;
+  height:32rpx;
+  vertical-align: middle;
+}
+.receive-info .set{
+  height:100rpx;
+  line-height: 100rpx;
+}
+.edit text{
+  padding: 15rpx 50rpx;
+  margin-left:26rpx;
+  border-radius:15rpx;
+  border:1px solid #b9966f;
+  font-size:30rpx;
+}
+.receive-bottom{
+  width:100%;
+  height:95rpx;
+  position: fixed;
+  bottom: 0;
+  left:0;
+  background: #c8a987;
+  color:#ffe5c0;
+  font-size:32rpx;
+  line-height:95rpx;
+  text-align: center;
+}
+.receive-bottom .add{
+  background: #b9966f;
+}
+.active{
+  background: #b9966f;
+  color:#fff;
+}

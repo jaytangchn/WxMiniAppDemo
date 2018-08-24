@@ -1,0 +1,66 @@
+<!--index.wxml-->
+<view class='top-searchbox'>
+  <view class='fake-search'  bindtap='navToSearch'>
+    <view class='search-icon'></view>
+    <view class='search-txt'>搜索商品</view>
+  </view>
+</view>
+
+<!--模板1-->
+<swiper wx:for="{{banner.key}}" circular='true' indicator-dots="true" autoplay="true" interval="5000" duration="500" class='index-swiper'>
+  <block wx:for="{{banner[item]}}"  wx:key="indexImg">
+    <swiper-item>
+      <image src="{{item.fileUrl}}" data-item='{{item}}' class="slide-image" bindtap='turnToAd' />
+    </swiper-item>
+  </block>
+</swiper>
+<!--模板2-->
+<view class='quick-nav' wx:for="{{typelist.key}}" >
+  <!-- <view>{{typelist[item]}}</view> -->
+  <navigator wx:for="{{typelist[item]}}" wx:if="{{index<4}}" class='quick-nav-item' hover-class='none' url='../category/category?typeCode={{item.code}}' wx:key="code">
+    <image src='../../images/{{index}}.png'></image>
+    <text>{{item.name}}</text>
+  </navigator>
+</view>
+<!--模板3-->
+<view  wx:for="{{list.key}}">
+    <view wx:for="{{list[item]}}">
+        <view class='title-block' >
+          <text class='arrow-right' bindtap='navigator' data-code="{{item.code}}">{{item.name}}</text>
+        </view>
+        <scroll-view scroll-x="true" class='scroll-items' >
+            <navigator class='item-box' wx:for="{{item.list.rows}}" hover-class='none' url='../itemDetail/itemDetail?goodsCode={{item.goodsCode}}'>
+                <!-- <text class='tag'>新品</text> -->
+                <image class='item-img' src='{{item.imgUrl}}'></image>
+                <view class='item-title'>{{item.goodsName}}</view>
+                <view class='item-price'>
+                    <text class='em'>￥</text>
+                    <text class='num'>{{item.tmGoodsSkuListCusts[0].skuPrice}}</text>
+                    <!-- <text class='old'>￥24.00</text> -->
+                </view>
+            </navigator>
+        </scroll-view>
+    </view>
+</view>
+<!--模板四-->
+<!-- <view >
+    <view class='title-block' >
+        <text class='' >推荐商品</text>
+    </view>
+    <scroll-view scroll-x="true" class='scroll-items' >
+        <navigator class='item-box'>
+            <text class='tag'>新品</text>
+            <image class='item-img' src='../../images/xhl/item(4).jpg'></image>
+            <view class='item-title'>222</view>
+            <view class='item-price'>
+                <text class='em'>￥</text>
+                <text class='num'>23</text>
+                <text class='old'>￥24.00</text>
+            </view>
+        </navigator>
+    </scroll-view>
+</view> -->
+
+
+
+

@@ -1,0 +1,32 @@
+<!--pages/searchPartner/searchPartner.wxml-->
+<view class='top-searchbox real-search'>
+     <view class='search-icon'></view>
+    <input focus='true' placeholder='名称' confirm-type='search' value="{{keyWord}}" bindinput="inputSearch"></input>
+    <view class='icon-x'></view>
+</view>
+<view class='search-bottom-h1'>筛选条件</view>
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>伙伴类型</view>
+    <view class='cell-right arrow-right'>
+      <picker bindchange="bindPickerChange" value="{{partnerIndex}}" range="{{partnerTypeList}}">
+        <view>{{partnerTypeList[partnerIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>是否有欠款</view>
+    <view class='cell-right arrow-right'>
+      <picker bindchange="bindArrearsChange" value="{{arreasIndex}}" range="{{arrearsList}}">
+        <view>{{arrearsList[arreasIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+<view class='block-btn-box' bindtap='search'>
+  <view class='block-btn'>搜索</view>
+</view>
+
+

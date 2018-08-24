@@ -1,0 +1,4 @@
+/* pages/search/search.wxss */
+.block-btn-box{
+  margin-top: 130rpx;
+}

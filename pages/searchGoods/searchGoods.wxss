@@ -1,0 +1,4 @@
+/* pages/searchGoods/searchGoods.wxss */
+.block-btn-box{
+  margin-top: 130rpx;
+}

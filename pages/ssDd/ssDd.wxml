@@ -1,0 +1,31 @@
+<!--pages/ssDd/ssQd.wxml-->
+ <!-- <view class='top-searchbox'>
+   <view class='fake-search' bindtap='navSearch' bindtap='navToSearch'>
+    <view class='search-icon'></view>
+    <view class='search-txt'>搜索</view>
+  </view>  
+</view> -->
+
+<view class='month-block'>
+  <picker mode='date' fields='year' bindchange="dateChange" start="2018">
+    <view class='picker arrow-right' >{{date}}</view>
+  </picker>
+</view>
+<view class='s-table' id='dd'>
+  <view class='s-table-tr thead'>
+    <view class='s-table-td col-full'>月份</view>
+    <view class='s-table-td col3'>订单量</view>
+    <view class='s-table-td col4'>订单金额</view>
+    <view class='s-table-td col3'>发货量</view>
+    <view class='s-table-td col4'>发货金额</view>
+  </view>
+  <view class='s-table-tr' wx:for="{{orderCountList}}" wx:key="{{item.id}}">
+    <view class='s-table-td col-full'>{{item.realName}}</view>
+    <view class='s-table-td col3'>{{item.totalCount}}笔</view>
+    <view class='s-table-td col4'>￥{{item.totalPrice}}</view>
+    <view class='s-table-td col3'>{{item.shipOrderCount }}笔</view>
+    <view class='s-table-td col4'>￥{{item.shipOrderTotalPrice}}</view>
+  </view>
+</view>
+
+<!-- <view class='nomore-tip'>没有更多了</view> -->

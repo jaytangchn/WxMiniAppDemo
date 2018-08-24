@@ -1,0 +1,4 @@
+/* pages/searchPartner/searchPartner.wxss */
+.block-btn-box{
+  margin-top:150rpx;
+}

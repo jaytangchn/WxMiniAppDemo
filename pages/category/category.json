@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "商品",
+    "usingComponents": {
+      "chooseSku": "../chooseSku/chooseSku",
+      "goodsCart":"../goodsCart/goodsCart"
+    }
+}

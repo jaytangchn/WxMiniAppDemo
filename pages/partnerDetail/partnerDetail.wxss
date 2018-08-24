@@ -1,0 +1,32 @@
+/* pages/partnerDetail/partnerDetail.wxss */
+@import '../mineMes/mineMes.wxss';
+@import '../partner/partner.wxss';
+@import '../order/order.wxss';
+.userbox{
+  height: 224rpx;
+  display: flex;
+  background-color: #B9966F;
+  color: #FFE5C0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.userbox .user-avatar{
+  width: 90rpx;
+  height: 90rpx;
+  text-align: center;
+  line-height: 90rpx;
+  border-radius: 100px;
+  background-color: #fff;
+  border: 10rpx solid #D4BCA1;
+  color: #B9966F;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+
+.order-total-tip{
+  margin-top: 40rpx;
+}
+.number{
+  color:#B9966F
+}

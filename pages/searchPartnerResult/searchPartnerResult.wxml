@@ -1,0 +1,51 @@
+<!--pages/searchPartnerResult/searchPartnerResult.wxml-->
+<view class='media-cells'>
+     <view wx:if="{{selfObj.partnerID}}"  data-partner='{{selfObj.roleType}}' data-id='{{selfObj.partnerID}}' class='media-cell' hover-class='none' bindtap='goPartner'>
+    <view class='media-cell-hd'>
+      <view class='avatar-txt soHigh'>我</view>
+    </view>
+    <view class='media-cell-bd'>
+      <view class='title'>{{selfObj.realName}} {{selfObj.mobile}}</view>
+      <view class='submes'>{{selfObj.comName}}</view>
+    </view>
+    <view class='media-cell-ft'>
+      <view class='tag danger' wx:if="{{selfObj.statusName}}">{{selfObj.statusName}}</view>
+      <view class='arrow-right'></view>
+    </view>
+  </view>
+
+   <view wx:for='{{leaders}}' data-partner='{{item.roleType}}' data-id='{{item.partnerID}}' wx:key='unique' class='media-cell' hover-class='none' bindtap='goPartner'>
+    <view class='media-cell-hd'>
+      <view class='avatar-txt soHigh'>{{item.roleName}}</view>
+    </view>
+    <view class='media-cell-bd'>
+      <view class='title'>{{item.realName}} {{item.mobile}}</view>
+      <view class='submes'>{{item.comName}}</view>
+    </view>
+    <view class='media-cell-ft'>
+      <view class='tag danger' wx:if="{{item.statusName}}">{{item.statusName}}</view>
+      <view class='arrow-right'></view>
+    </view>
+  </view>
+
+  <view wx:for='{{partners}}' data-partner='{{item.roleType}}' data-id='{{item.partnerID}}' wx:key='unique' class='media-cell' hover-class='none' bindtap='goPartner'>
+    <view class='media-cell-hd'>
+      <view class='avatar-txt high'>{{item.roleName}}</view>
+    </view>
+    <view class='media-cell-bd'>
+      <view class='title'>{{item.realName}} {{item.mobile}}</view>
+      <view class='submes'>{{item.comName}}</view>
+    </view>
+    <view class='media-cell-ft'>
+      <view class='tag danger' wx:if="{{item.statusName}}">{{item.statusName}}</view>
+      <view class='arrow-right'></view>
+    </view>
+  </view>
+</view>
+<!-- 无伙伴 -->
+<view class='no-partner' wx:if='{{leaders.length<1 && partners.length<1 && !selfObj}}'>
+  <view class='img-box'>
+    <image src = '../../images/empty.png'></image>
+  </view>
+  <view class='tip'>空空如也！</view>
+</view>

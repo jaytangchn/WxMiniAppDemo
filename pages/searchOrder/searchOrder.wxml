@@ -1,0 +1,83 @@
+<!--pages/searchOrder/searchOrder.wxml-->
+<view class='top-searchbox real-search'>
+     
+    <input focus='true' value='{{keyWord}}' placeholder='订单编号/金额/客户' confirm-type='search' bindinput="keyWordInput"></input>
+   
+</view>
+<view class='search-bottom-h1'>筛选条件</view>
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>订单状态</view>
+    <view class='cell-right arrow-right'>
+      <picker mode = "selector" range='{{ordersStatus.data}}' range-key='{{ordersStatus.showkey}}' value='{{ordersStatus.index}}' bindchange="ordersStatusIndexChange" >
+            <view>{{ordersStatus.data[ordersStatus.index][ordersStatus.showkey]}}</view>  
+        </picker>
+    </view>
+  </view>
+</view>
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>是否有欠款</view>
+    <view class='cell-right arrow-right'>
+        <picker mode = "selector" range='{{debtSelect.data}}' range-key='{{debtSelect.showkey}}' value='{{debtSelect.index}}' bindchange="debtIndexChange" >
+            <view>{{debtSelect.data[debtSelect.index][debtSelect.showkey]}}</view>  
+        </picker>
+    </view>
+  </view>
+</view>
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>开始日期</view>
+    <view class='cell-right arrow-right'>
+      <picker mode='date' bindchange="startCreateDateChange">
+        <view>{{startCreateDate}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>结束日期</view>
+    <view class='cell-right arrow-right'>
+      <picker mode='date' bindchange="endCreateDateChange">
+        <view>{{endCreateDate}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>客户</view>
+    <view class='cell-right arrow-right'>
+      <picker mode = "selector" range='{{jxsSelect.data}}' range-key='{{jxsSelect.showkey}}' value='{{jxsSelect.index}}' bindchange="jxsIndexChange" >
+            <view>{{jxsSelect.data[jxsSelect.index][jxsSelect.showkey]}}</view>  
+        </picker>
+    </view>
+  </view>
+</view>
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>业务员</view>
+    <view class='cell-right arrow-right'>
+      <picker mode = "selector" range='{{salemanSelect.data}}' range-key='{{salemanSelect.showkey}}' value='{{salemanSelect.index}}' bindchange="salemanIndexChange" >
+            <view>{{salemanSelect.data[salemanSelect.index][salemanSelect.showkey]}}</view>  
+        </picker>
+    </view>
+  </view>
+</view>
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>收货地址</view>
+    <view class='cell-right arrow-right'>
+      <picker mode = "selector" range='{{addressSelect.data}}' range-key='{{addressSelect.showkey}}' value='{{addressSelect.index}}' bindchange="addressIndexChange" >
+            <view>{{addressSelect.data[addressSelect.index][addressSelect.showkey]}}</view>  
+        </picker>
+    </view>
+  </view>
+</view>
+<view class='block-btn-box'>
+  <view class='block-btn' bindtap="submit">搜索</view>
+</view>
+
+
+

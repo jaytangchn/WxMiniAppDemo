@@ -1,0 +1,3 @@
+<!--pages/myComponent/money-text/money-text.wxml-->
+<!-- <text>pages/myComponent/money-text/money-text.wxml</text> -->
+{{moneyStr}}

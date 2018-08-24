@@ -1,0 +1,173 @@
+<!--pages/unsure/unsure.wxml-->
+<view class='order-tip-block'>
+  <image src='../../images/time.png'></image>
+  <text>待确认</text>
+</view>
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>商品收货信息</view>
+  </view>
+  <navigator class='addres-mes' hover-class='none'>
+    <view class='left'>
+      <view class='mes-p'>
+        <view class='mes-p-name'>收货人：张三</view>
+         <view class='mes-p-phone'>15467542342</view>
+      </view>
+      <view class='mes-ad'>收货地址：湖南省 长沙市 昌平区 广博新区路100号新区路100号</view>
+    </view>
+    <view class='arrow-right'></view>
+  </navigator>
+</view>  
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>期望发货日期</view>
+    <view class='cell-right arrow-right'>
+       <picker>
+        <view>2018-03-20 </view>
+      </picker>
+    </view>
+  </view>
+  <view class='signle-cell'>
+    <view class='cell-left'>收货客户</view>
+    <view class='cell-right arrow-right'>
+       <picker>
+        <view>湖南振利软件科技有限公司</view>
+      </picker>
+    </view>
+  </view>
+  <view class='signle-cell'>
+    <view class='cell-left'>结算客户</view>
+    <view class='cell-right arrow-right'>
+       <picker>
+        <view>湖南振利软件科技有限公司</view>
+      </picker>
+    </view>
+  </view>
+  <view class='signle-cell'>
+    <view class='cell-left'>结算方式</view>
+    <view class='cell-right arrow-right'>
+       <picker>
+        <view>合约结款</view>
+      </picker>
+    </view>
+  </view>
+  <view class='signle-cell'>
+    <view class='cell-left'>支付方式</view>
+    <view class='cell-right arrow-right'>
+       <picker>
+        <view>信用额度</view>
+      </picker>
+    </view>
+  </view>
+</view>
+
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>发票</view>
+    <view class='cell-right arrow-right'>
+       <picker>
+        <view>发票不随货</view>
+      </picker>
+    </view>
+  </view>
+  <view class='invoice-mes' bindtap='navToInvoice'>
+    <view class='left'>
+      <view class='invoice-mes-row'>
+        <text class='t'>发票抬头：</text>
+        <text>湖南振利软件科技有限公司</text>
+      </view>
+      <view class='invoice-mes-row'>
+        <text class='t'>税号：</text>
+        <text>1122334455667788</text>
+      </view>
+      <view class='invoice-mes-row'>
+        <text class='t'>发票类型：</text>
+        <text>增值税专用发票(纸质发票)</text>
+      </view>
+    </view>
+    <view class='arrow-right'></view>
+  </view>
+  <navigator class='addres-mes' hover-class='none' style='border-top:1rpx solid #eee'>
+    <view class='left'>
+      <view class='mes-p'>
+        <view class='mes-p-name'>收货人：张三</view>
+         <view class='mes-p-phone'>15467542342</view>
+      </view>
+      <view class='mes-ad'>收货地址：湖南省 长沙市 昌平区 广博新区路100号新区路100号</view>
+    </view>
+    <view class='arrow-right'></view>
+  </navigator>
+</view> 
+
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-right' style='color: #B9966F'>备注</view>
+    <view class='cell-left' style='margin-right:0;margin-left:50rpx;'>
+      <input placeholder='请输入' placeholder-style='color:#999' style='color:#999;text-align:right;' value='青团生产日期要15日以后'></input>
+    </view>
+  </view>
+</view> 
+
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>已选商品</view>
+    <view class='cell-right' style='display:flex;color:#777;font-size:26rpx;height:26rpx;line-height:26rpx;'>
+      <view style='padding-right:30rpx;border-right:1rpx solid #ccc'>清空</view>
+      <view style='padding-left:30rpx;'>添加</view>
+    </view>
+  </view>
+  <view class='order-item'>
+    <image class='order-item-image' src='../../images/xhl/de01(2).jpg'></image>
+    <view class='order-item-mes'>
+      <view class='first-row'>
+        <view class='order-item-title'>#134002小盒装240g青团小盒装青团小盒装青团小盒装青团</view>
+        <view class='order-item-act'>
+          <view class='icon-edit'></view>
+        </view>
+      </view>
+      <view class='second-row'>折扣: 80%</view>
+      <view class='third-row'>
+        <view class='order-item-price'>
+          <view class='now'>
+            <text class='i'>¥</text>
+             <text>20.00</text>
+          </view>
+          <view class='old'>¥24.00</view>
+        </view>
+        <view class='order-item-num'>×5+0</view>
+      </view>
+    </view>
+  </view>
+  <view class='order-item'>
+    <image class='order-item-image' src='../../images/xhl/de01(2).jpg'></image>
+    <view class='order-item-mes'>
+      <view class='first-row'>
+        <view class='order-item-title'>#134002小盒装240g青团小盒装青团小盒装青团小盒装青团</view>
+        <view class='order-item-act'>
+          <view class='icon-edit'></view>
+        </view>
+      </view>
+      <view class='second-row'>折扣: 80%</view>
+      <view class='third-row'>
+        <view class='order-item-price'>
+          <view class='now'>
+            <text class='i'>¥</text>
+             <text>20.00</text>
+          </view>
+          <view class='old'>¥24.00</view>
+        </view>
+        <view class='order-item-num'>×5+0</view>
+      </view>
+    </view>
+  </view>
+  <view class='order-total-block'>
+    <view class='total'>合计:￥1,968.00</view>
+    <view>×11+0</view>
+  </view>
+</view> 
+
+<view class='fixed-bottom-bar'>
+  <view class='fw-btn bg-third' style='flex:1;color:#B9966F'>取消订单</view>
+  <view class='fw-btn bg-second'  style='flex:1'>保存修改</view>
+  <view class='fw-btn bg-primary'  style='flex:1'>提交订单</view>
+</view>

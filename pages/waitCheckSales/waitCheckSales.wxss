@@ -1,0 +1,2 @@
+/* pages/waitCheckSales/waitCheckSales.wxss */
+@import '../checkOrder/checkOrder.wxss';

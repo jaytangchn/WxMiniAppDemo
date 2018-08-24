@@ -1,0 +1,29 @@
+/* pages/hasApproval/hasApproval.wxss */
+@import '../waitCheck/waitCheck.wxss';
+.sp-title text{
+  margin-right:15rpx;
+}
+
+.qrsh{
+	margin-left:160rpx;
+	height:52rpx;
+	width:160rpx;
+	background:#b9966f;
+	margin-top:25rpx;
+	line-height:52rpx;
+	text-align:center;
+	border-radius:25rpx;
+	color:#fff;
+}
+.cells .tip{
+  display: flex;
+}
+.cells .tip .tip-l{
+  width: 180rpx;
+  text-align: left;
+  font-size:30rpx;
+}
+.cells .tip .tip-r{
+  font-size:30rpx;
+  text-align: left;
+}

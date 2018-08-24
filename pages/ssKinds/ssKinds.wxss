@@ -1,0 +1,2 @@
+/* pages/ssKinds/ssKinds.wxss */
+@import '../ssDd/ssDd.wxss';

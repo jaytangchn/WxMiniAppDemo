@@ -1,0 +1,55 @@
+/* pages/invoiceEdit/invoiceEdit.wxss */
+@import '../checkOrder/checkOrder.wxss';
+
+.tipbox{
+  padding: 50rpx 30rpx;
+  font-size: 28rpx;
+  color: #777777;
+  line-height: 1.5
+}
+
+.cell-right.spe{
+  color: #B9966F;
+}
+.arrow-right.spe::after{
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAeCAYAAAAhDE4sAAAB4ElEQVRIS8XWP0gbURwH8O/vzhTpEhULolu7Kh3F1dZeVMRBenXqUmpI1MSAINLFpULRgNHkJA4OdhAjCA7V/LGjQrciruKkhRrRDG1FzXvlHTV9WKN39YE3Pn7fD+/du/d7R9l46BnXtCjAv6FYDBqD8T38x0MZa+grwJ/+ye6DuM8ITO+4tQSUBHifFDwCQ6cxEPviBqNUauxB1eHJR07clII/iPHuFwPTn51iJApTqZe6N99gXZnZOePU294/teIEsyHxcA7KzobeAzQqBRmI3hqBqfnbsBJ0WZhJhIZBNCEHOWHYF4hFb8L+gURxJhF+A8IcAK00Y2DcF4y9K4ddC4ni9Gy4hzgWAXhKYY5k4dFBv2kuF6+CZSEbsyLPCWwVwEMpuFSorX5tmmNnMnYjZC8zHm6GhjUANVIwfab/6unyz/28HLsVEoW5mUgT09k6gAYJ29L0yo42/4eCGHMEicINK/K4CJYF8ETCtkGeNiMw+d0xJMKfEsG6CvLkADRK2K6mo9UVZC8zOeJlF6frILT8xfjG/UBKlqbkZZfZ/k1Nr+x0vP1KPkglR0TJoVXSRpQ0towVGr9Tq7Wb/2F9AgS/dIbcNX9xHXnzxwsAXkmI++tI2QWp7MpW9RPxG1mF7dFuQXAbAAAAAElFTkSuQmCC)
+}
+.inc-items{
+  overflow: hidden;
+}
+.inc-items-row{
+  display: flex
+}
+.inc-items-row .inc-item{
+  flex: 1;
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  height: 114rpx;
+  text-align: center;
+  line-height: 114rpx;
+  border: 1rpx solid #B9966F;
+  border-radius: 10rpx;
+  color: #B9966F;
+}
+.inc-items-row .inc-item.active{
+  color: #fff;
+  background-color: #B9966F;
+}
+.inc-items-row .inc-item.disabled{
+  color: #ccc;
+  border-color: #ccc;
+}
+.inc-items-row .inc-item:last-child{
+  margin-right: 30rpx;
+}
+.inc-items .inc-items-row:last-child{
+  margin-bottom: 30rpx;
+}
+
+.cells .cell-right{
+  color:#B9966F;
+}
+
+.cells .cell-left{
+  color:#000;
+}

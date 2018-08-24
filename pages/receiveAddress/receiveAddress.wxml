@@ -1,0 +1,25 @@
+<!--pages/receiveAddress/receiveAddress.wxml-->
+<view class = 'receive-info' wx:for="{{addrList}}">
+  <view class = 'receive-person flex-items'>
+    <view class = 'receive-name'>{{item.name}}</view>
+    <view class = 'receive-tel'>{{item.mobile}}{{item.tel?",":""}} {{item.tel}}</view>
+  </view>
+  <view class = 'receive-address'>{{item.addrInfo}}</view>
+  <view class = 'set flex-items'>
+    <view class = "defult">
+      <image src = '../../images/ok.png' wx:if="{{index == selectAddrIndex}}"  data-index="{{index}}" bindtap='useAddr'></image>
+      <image src = '../../images/notchoose.png' wx:if="{{index != selectAddrIndex}}"  data-index="{{index}}" bindtap='useAddr'></image>
+        使用此地址
+      </view>
+    <view class = 'edit'>
+      <text class = 'active' data-addr="{{item.addrId}}" bindtap='goEdit'>编辑</text>
+      <text bindtap='delete' data-addr="{{item.addrId}}" >删除</text>
+    </view>
+  </view>
+</view>
+
+
+<view class = 'receive-bottom flex-items'>
+  <view class = 'from-wx flex-item' bindtap='importFromWx'>从微信中导入地址</view>
+  <navigator class = 'add flex-item' url = '../addAddress/addAddress?partnerId={{partnerId}}' hover-class='none'>添加新地址</navigator> 
+</view>

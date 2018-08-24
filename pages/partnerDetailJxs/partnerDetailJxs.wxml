@@ -1,0 +1,178 @@
+<!--pages/partnerDetailJxs/partnerDetailJxs.wxml-->
+<view class = 'top-banner'>
+  <view class='userbox'>
+    <view class='user-avatar'>经销商</view>
+    <view class='user-name'>{{clientInfo.partnerName}}</view>
+  </view>
+
+  <view class='tab-block'>
+    <view class='tabs-box'>
+      <view class="tab-item {{tab==01? 'active':''}}" data-tabid='01' bindtap='navTab'>基本信息</view>
+      <view class="tab-item {{tab==02? 'active':''}}" data-tabid='02' bindtap='navTab'>相关订单</view>
+    </view>
+  </view>
+</view>
+
+<view class = 'under-info'>
+  <view class="{{tab==01? 'show':'hidden'}}">
+    <view class='cells'>
+      <view class='signle-cell'>
+        <view class='cell-left'>合作伙伴简称</view>
+        <view class='cell-right'>{{clientInfo.partnerAbbrName}}</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>联系人</view>
+        <view class='cell-right'>{{clientInfo.contactName}}</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>手机</view>
+        <view class='cell-right ' bindtap='callMobile'><text class='number'>{{clientInfo.contactMobile}}</text></view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>固话</view>
+        <view class='cell-right' bindtap='call'><text class='number'>{{clientInfo.companyTel}}</text></view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>传真</view>
+        <view class='cell-right'>{{clientInfo.companyFax}}</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>核算单位</view>
+        <view class='cell-right'>{{clientInfo.calculationUnit}}</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>销售渠道</view>
+        <view class='cell-right'>{{clientInfo.channelName}}</view>
+      </view>
+      <!-- <view class='signle-cell'>
+        <view class='cell-left'>供货渠道</view>
+        <view class='cell-right'>{{clientInfo.supplyChannel}}</view>
+      </view> -->
+      <view class='signle-cell'>
+        <view class='cell-left'>合作伙伴编号</view>
+        <view class='cell-right'>{{clientInfo.partnerCode}}</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>账户金额(万）</view>
+        <view class='cell-right'>{{clientInfo.accountAmount}}</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>临时额度(万）</view>
+        <view class='cell-right'>{{clientInfo.tempAmount}}</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>已用额度(万）</view>
+        <view class='cell-right'>{{clientInfo.useAmount}}</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>剩余额度(万）</view>
+        <view class='cell-right'>{{clientInfo.tempAmount-clientInfo.useAmount}}</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>税号</view>
+        <view class='cell-right'>{{clientInfo.taxNo}}</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>开户银行</view>
+        <view class='cell-right'>{{clientInfo.bankName}}</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>开户账号</view>
+        <view class='cell-right'>{{clientInfo.bankNo}}</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>地址</view>
+        <view class='cell-right'>{{clientInfo.companyAddr}}</view>
+      </view>
+
+    </view>
+    <!-- <view class='cells sp'>
+      <view class='sp-title'>发票信息</view>
+      <view class='signle-cell'>
+        <view class='cell-left'>税号</view>
+        <view class='cell-right'>11222334455</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>开户银行</view>
+        <view class='cell-right'>招商银行</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>开户账号</view>
+        <view class='cell-right'>72277777777777777</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>地址</view>
+        <view class='cell-right'>上海市闵行区</view>
+      </view>
+    </view>
+    <view class='cells sp'>
+      <view class='sp-title'>发票地址信息</view>
+      <view class='signle-cell'>
+        <view class='cell-left'>收货人姓名</view>
+        <view class='cell-right'>张三</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>手机号码</view>
+        <view class='cell-right'>18233225544</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>固定电话</view>
+        <view class='cell-right'>0731-88888888</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>地区</view>
+        <view class='cell-right'>上海市闵行区</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>详细地址</view>
+        <view class='cell-right'>江凯路888号</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>邮编</view>
+        <view class='cell-right'>410000</view>
+      </view>
+    </view>
+    <view class='cells sp'>
+      <view class='sp-title'>收货信息</view>
+      <view class='signle-cell'>
+        <view class='cell-left'>收货人姓名</view>
+        <view class='cell-right'>张三</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>手机号码</view>
+        <view class='cell-right'>18233225544</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>固定电话</view>
+        <view class='cell-right'>0731-88888888</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>地区</view>
+        <view class='cell-right'>上海市闵行区</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>详细地址</view>
+        <view class='cell-right'>江凯路888号</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>邮编</view>
+        <view class='cell-right'>410000</view>
+      </view>
+    </view> -->
+  </view>
+  <view class="{{tab==02? 'show':'hidden'}}">
+    <view class='order-cards' wx:for="{{orderList}}">
+      <view class='order-card'>
+        <view class='order-card-hd'>
+          <view class='order-card-hd-title'>{{item.ordersCode}}</view>
+          <view class='order-card-hd-state'>{{item.status.desc}}</view>
+        </view>
+        <view class='order-card-bd' >
+          <view class='row-mes'>订单金额：¥{{item.ordersSettleMoney}}</view>
+          <view class='row-mes'>结算客户：{{item.partnerName}}</view>
+          <view class='row-mes'>订单日期：{{item.date}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

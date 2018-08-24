@@ -1,0 +1,63 @@
+<!--pages/salesStatistics/salesStatistics.wxml-->
+<view class='ss-block'>
+  <view class='ss-item s01'>
+    <view class='ss-item-hd'>
+      <view class='left'>今天</view>
+      <view class='right'>{{data[0].orderCount?data[0].orderCount:0}}笔</view>
+    </view>
+    <view class='ss-item-ft'>
+      <view class='left'>{{today}} </view>
+      <view class='right'>￥{{data[0].totalMoney?data[0].totalMoney:0}}</view>
+    </view>
+  </view>
+  <view class='ss-item s02'>
+    <view class='ss-item-hd'>
+      <view class='left'>昨天</view>
+      <view class='right'>{{data[1].orderCount?data[1].orderCount:0}}笔</view>
+    </view>
+    <view class='ss-item-ft'>
+      <view class='left'>{{yesterDay}} </view>
+      <view class='right'>￥{{data[1].totalMoney?data[1].totalMoney:0}}</view>
+    </view>
+  </view>
+  <view class='ss-item s03'>
+    <view class='ss-item-hd'>
+      <view class='left'>本月</view>
+      <view class='right'>{{data[2].orderCount?data[2].orderCount:0}}笔</view>
+    </view>
+    <view class='ss-item-ft'>
+      <view class='left'>{{month}}</view>
+      <view class='right'>￥{{data[2].totalMoney?data[2].totalMoney:0}}</view>
+    </view>
+  </view>
+</view>
+<view class='gird-box'>
+  <view class='gird-row'>
+    <view class='gird-item' bindtap='ssDd'>
+      <image class='gird-icon' src='../../images/dingdan-b.png'></image>
+      <view class='gird-txt'>订单</view>
+    </view>
+    <view class='gird-item' bindtap='ssKinds'>
+      <image class='gird-icon' src='../../images/kinds-b.png'></image>
+      <view class='gird-txt'>品类</view>
+    </view>
+    <view class='gird-item' bindtap='ssGoods'>
+      <image class='gird-icon' src='../../images/goods-b.png'></image>
+      <view class='gird-txt'>商品</view>
+    </view>
+  </view>
+  <view class='gird-row'>
+    <view class='gird-item' bindtap='ssQd' wx:if="{{isSalesMan||isManager}}">
+      <image class='gird-icon' src='../../images/qudao-b.png'></image>
+      <view class='gird-txt'>渠道</view>
+    </view>
+    <view class='gird-item' bindtap='ssJxs' wx:if="{{isSalesMan||isManager}}">
+      <image class='gird-icon' src='../../images/jingxiaoshang-b.png'></image>
+      <view class='gird-txt'>经销商</view>
+    </view>
+    <view class='gird-item' bindtap='unableToast' wx:if="{{isManager}}">
+      <image class='gird-icon' src='../../images/yewuyuan-b.png'></image>
+      <view class='gird-txt'>业务员</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,39 @@
+<!--pages/searchOrderResult/searchOrderResult.wxml-->
+
+<view wx:if='{{totalCount>0}}'>
+  <view class='order-cards'>
+    <view class='order-card' wx:for="{{ordersList}}" wx:for-index="index">
+      <view class='order-card-hd'>
+        <view class='order-card-hd-title'>{{item.ordersCode}}</view>
+        <view class='order-card-hd-state'>{{item.status.desc}}</view>
+      </view>
+      <navigator class='order-card-bd' hover-class='none' url='../orderDetail/orderDetail?ordersCode={{item.ordersCode}}'>
+        <view class='row-mes'>订单金额：¥
+          <!-- <money-text money="{{item.ordersSettleMoney}}"></money-text> -->
+          {{item.ordersSettleMoney}}
+        </view>
+        <view class='row-mes'>结算客户：{{item.jsPartnerName}}</view>
+        <view class='row-mes'>订单日期：{{item.createTimeStr}}</view>
+      </navigator>
+      <view class='order-card-ft'>
+        <view wx:if="{{item.editButton}}" class='action' data-index='{{index}}' bindtap='edit'>编辑订单</view>
+        <view wx:if="{{item.submitButton}}" class='action' data-index='{{index}}' data-operate='pass' bindtap='update'>提交确认</view>
+        <view wx:if="{{item.affirmPassButton}}" class='action' data-index='{{index}}' data-operate='pass' bindtap='update'>确认通过</view>
+        <view wx:if="{{item.affirmRejectButton}}" class='action' data-index='{{index}}' data-operate='reject' bindtap='update'>确认驳回</view>
+        <view wx:if="{{item.checkPassButton}}" class='action' data-index='{{index}}' data-operate='pass' bindtap='update'>审核通过</view>
+        <view wx:if="{{item.checkRejectButton}}" class='action' data-index='{{index}}' data-operate='reject' bindtap='update'>审核驳回</view>
+        <view wx:if="{{item.invalidButton}}" class='action' data-index='{{index}}' data-operate='invalid' bindtap='update'>取消订单</view>
+      </view>
+    </view>
+
+  </view>
+  <view class='order-total-tip'>共{{totalCount}}条信息</view>
+</view>
+
+<!-- 无伙伴 -->
+<view class='no-partner' wx:if='{{totalCount==0}}'>
+  <view class='img-box'>
+    <image src = '../../images/empty.png'></image>
+  </view>
+  <view class='tip'>空空如也！</view>
+</view>

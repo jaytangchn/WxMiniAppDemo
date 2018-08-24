@@ -1,0 +1,47 @@
+<!--查看购物车模态框  -->
+<view class='cover' wx:if = '{{show}}' bindtap='coverHide'></view>
+<view class='look-car' wx:if='{{show}}'>
+
+  <view class = 'car-top flex-items'>
+    <view class = 'car-top-l flex-item'>已选商品</view>
+    <view class = 'car-top-r flex-item' style='text-align:right' bindtap='clear'>
+      <text>清空</text>
+    </view>
+  </view>
+  <view wx:if="{{goodsList.length==0}}" class='empty'>购物车空空如也</view>
+  <view class = 'car-info' >
+    <view class = 'car-center' wx:for="{{goodsList}}" wx:key="goodsCode">
+      <view class = 'car-center-img'>
+        <image src='{{item.tmGoodsSkuListCusts[0].imgUrls[0].url}}'></image> 
+      </view>
+      <view class = 'car-center-content'>
+        <view class='content-top'>{{item.goodsName}}</view>
+          <view class = 'discount'>折扣：{{item.realDiscount}}%</view>
+          <view class='item-mes-price'>
+              <text class='small'>￥</text>
+              <text>{{item.skuList[0].realPrice}}</text>
+              <text class='old-price' wx:if="{{item.realDiscount<100}}">￥{{item.skuList[0].unitPrice}}</text>
+              <text class = 'number'>x{{item.packageCnt}}+{{item.excessCnt}}</text>
+          </view>
+          <view class = 'bianji' data-index="{{index}}" bindtap='edit'></view>
+      </view>
+    </view>
+  </view>
+
+  <view>
+    <view class = 'car-bottom flex-items'>
+      <view class = 'cart-box-little'></view>
+      <view class = 'car-bottom-l flex-item'>{{total.packageCnt?total.packageCnt:0}}+{{total.excessCnt?total.excessCnt:0}}</view>
+      <view class = 'car-bottom-c flex-item'>
+        <text>合计</text>
+        <text style='font-size:25rpx;'>(不含运费):</text>
+        <text>￥{{total.price?total.price:0}}</text>
+      </view>
+      <!-- <view class = 'car-bottom-r flex-item'>x{{total.packageCnt}}+{{total.excessCnt}}</view> -->
+    </view>
+    <view class = 'receive-bottom flex-items'>
+      <view class = 'from-wx flex-item' bindtap='goWait'>稍等一下</view>
+      <view class = 'add flex-item' bindtap='order'>去结算</view> 
+    </view>
+  </view>
+</view>

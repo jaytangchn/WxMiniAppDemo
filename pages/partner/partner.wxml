@@ -1,0 +1,103 @@
+<!--pages/partner/partner.wxml-->
+<view class='top-searchbox' wx:if="{{roleType>1}}">
+  <view class='fake-search'  bindtap='searchPartner'>
+    <view class='search-icon'></view>
+    <view class='search-txt'>搜索伙伴</view>
+  </view>
+</view>
+
+<view class='media-cells'>
+     <view wx:if="{{selfObj.partnerID}}"  data-partner='{{selfObj.roleType}}' data-id='{{selfObj.partnerID}}' class='media-cell' hover-class='none' bindtap='goPartner'>
+    <view class='media-cell-hd'>
+      <view class='avatar-txt soHigh'>我</view>
+    </view>
+    <view class='media-cell-bd'>
+      <view class='title'>{{selfObj.realName}} {{selfObj.mobile}}</view>
+      <view class='submes'>{{selfObj.comName}}</view>
+    </view>
+    <view class='media-cell-ft'>
+      <view class='tag danger' wx:if="{{selfObj.statusName}}">{{selfObj.statusName}}</view>
+      <view class='arrow-right'></view>
+    </view>
+  </view>
+
+   <view wx:for='{{leaders}}' data-partner='{{item.roleType}}' data-id='{{item.partnerID}}' wx:key='unique' class='media-cell' hover-class='none' bindtap='goPartner'>
+    <view class='media-cell-hd'>
+      <view class='avatar-txt soHigh'>{{item.roleName}}</view>
+    </view>
+    <view class='media-cell-bd'>
+      <view class='title'>{{item.realName}} {{item.mobile}}</view>
+      <view class='submes'>{{item.comName}}</view>
+    </view>
+    <view class='media-cell-ft'>
+      <view class='tag danger' wx:if="{{item.statusName}}">{{item.statusName}}</view>
+      <view class='arrow-right'></view>
+    </view>
+  </view>
+
+  <view wx:for='{{partners}}' data-partner='{{item.roleType}}' data-id='{{item.partnerID}}' wx:key='unique' class='media-cell' hover-class='none' bindtap='goPartner'>
+    <view class='media-cell-hd'>
+      <view class='avatar-txt high'>{{item.roleName}}</view>
+    </view>
+    <view class='media-cell-bd'>
+      <view class='title'>{{item.realName}} {{item.mobile}}</view>
+      <view class='submes'>{{item.comName}}</view>
+    </view>
+    <view class='media-cell-ft'>
+      <view class='tag danger' wx:if="{{item.statusName}}">{{item.statusName}}</view>
+      <view class='arrow-right'></view>
+    </view>
+  </view>
+
+
+ <!-- <navigator class='media-cell' hover-class='none' url='../partnerDetail/partnerDetail'>
+  <view class='media-cell-hd'>
+    <view class='avatar-txt high'>领导</view>
+  </view>
+  <view class='media-cell-bd'>
+    <view class='title'>张三 18200001234</view>
+    <view class='submes'>上海杏花楼食品营销有限公司</view>
+  </view>
+  <view class='media-cell-ft'>
+    <view class='arrow-right'></view>
+  </view>
+</navigator>
+<navigator class='media-cell' hover-class='none' url='../partnerDetail/partnerDetail'>
+  <view class='media-cell-hd'>
+    <view class='avatar-txt'>经销商</view>
+  </view>
+  <view class='media-cell-bd'>
+    <view class='title'>张三 18200001234</view>
+    <view class='submes'>上海杏花楼食品营销有限公司</view>
+  </view>
+  <view class='media-cell-ft'>
+    <view class='tag waring'>有欠款</view>
+    <view class='arrow-right'></view>
+  </view>
+</navigator>
+<navigator class='media-cell' hover-class='none' url='../partnerDetail/partnerDetail'>
+  <view class='media-cell-hd'>
+    <view class='avatar-txt'>经销商</view>
+  </view>
+  <view class='media-cell-bd'>
+    <view class='title'>张三 18200001234</view>
+    <view class='submes'>上海杏花楼食品营销有限公司上海杏花楼食品营销有限公司</view>
+  </view>
+  <view class='media-cell-ft'>
+    <view class='tag danger'>账单逾期</view>
+    <view class='arrow-right'></view>
+  </view>
+</navigator>
+<navigator class='media-cell' hover-class='none' url='../partnerDetail/partnerDetail'>
+  <view class='media-cell-hd'>
+    <view class='avatar-txt'>业务员</view>
+  </view>
+  <view class='media-cell-bd'>
+    <view class='title'>张三 18200001234</view>
+    <view class='submes'>上海杏花楼食品营销有限公司海杏花楼食品营销有限公司</view>
+  </view>
+  <view class='media-cell-ft'>
+    <view class='arrow-right'></view>
+  </view>
+</navigator>  -->
+</view>

@@ -1,0 +1,84 @@
+<!--pages/mineMes/mineMes.wxml-->
+<view wx:if="{{data.type != 'dealer' }}">
+    <view class='cells'>
+          <view class='signle-cell'>
+            <view class='cell-left'>姓名</view>
+            <view class='cell-right'>{{data.realName}}</view>
+          </view>
+          <view class='signle-cell'>
+              <view class='cell-left'>电话</view>
+              <view class='cell-right'>{{data.userMobile}}</view>
+          </view>
+          <view class='signle-cell'>
+              <view class='cell-left'>部门</view>
+              <view class='cell-right'>{{data.dept.deptName}}</view>
+          </view>
+          <view class='signle-cell'>
+              <view class='cell-left'>职位</view>
+              <view class='cell-right'>{{data.roleName}}</view>
+          </view>
+    </view>
+</view>
+<view wx:if="{{data.type == 'dealer' }}">
+<view class='cells'>
+  <view class='signle-cell'>
+     <view class='cell-left'>公司</view>
+     <view class='cell-right'>{{data.partnerName}}</view>
+  </view>
+   <view class='signle-cell'>
+     <view class='cell-left'>联系人</view>
+     <view class='cell-right'>{{data.contactName}}</view>
+  </view>
+   <view class='signle-cell'>
+     <view class='cell-left'>手机</view>
+     <view class='cell-right'>{{data.contactMobile}}</view>
+  </view>
+  <view class='signle-cell'>
+     <view class='cell-left'>固话</view>
+     <view class='cell-right'>{{data.companyTel}}</view>
+  </view>
+</view>
+
+<view class='cells sp'>
+<view class='sp-title'>公司信息</view>
+  <view class='signle-cell'>
+     <view class='cell-left'>税号</view>
+     <view class='cell-right'>{{data.taxNo}}</view>
+  </view>
+   <view class='signle-cell'>
+     <view class='cell-left'>开户银行</view>
+     <view class='cell-right'>{{data.bankName}}</view>
+  </view>
+   <view class='signle-cell'>
+     <view class='cell-left'>开户账号</view>
+     <view class='cell-right'>{{data.bankNo}}</view>
+  </view>
+  <view class='signle-cell'>
+     <view class='cell-left'>地址</view>
+     <view class='cell-right'>{{data.companyAddr}}</view>
+  </view>
+</view>
+
+<view class='cells sp'>
+<view class='sp-title'>我的钱包</view>
+        <view class='signle-cell'>
+        <view class='cell-left'>账户金额(万）</view>
+        <view class='cell-right'>{{data.accountAmount}}</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>临时额度(万）</view>
+        <view class='cell-right'>{{data.tempAmount}}</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>已用额度(万）</view>
+        <view class='cell-right'>{{data.useAmount}}</view>
+      </view>
+      <view class='signle-cell'>
+        <view class='cell-left'>剩余额度(万）</view>
+        <view class='cell-right'>{{data.tempAmount-data.useAmount}}</view>
+      </view>
+</view>
+</view>
+<view class='block-btn-box' bindtap='logout'>
+  <view class='block-btn'>退出登录</view>
+</view>

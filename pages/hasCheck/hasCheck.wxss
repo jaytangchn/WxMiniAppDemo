@@ -1,0 +1,2 @@
+/* pages/hasCheck/hasCheck.wxss */
+@import '../waitCheck/waitCheck.wxss'

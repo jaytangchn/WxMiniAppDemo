@@ -1,0 +1,166 @@
+<!--pages/checkOrder/checkOrder.wxml-->
+ 
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>期望发货日期</view>
+
+    <view class='cell-right arrow-right'>
+              <picker class='picker' mode="date" value="{{orderDate}}" start="2013-01" end=""   bindchange="bindDateChange">
+           <view>{{orderDate}}</view>
+           </picker>
+    </view>
+  </view>
+  <view class='signle-cell'>
+    <view class='cell-left'>结算客户</view>
+    <view class='cell-right arrow-right'>
+       <picker bindchange="bindOrderClientChange" value="{{orderClientIndex}}" range-key="partnerName" range="{{accountClientList}}">
+        <view>{{accountClientList[orderClientIndex].partnerName}}</view>
+      </picker>
+    </view>
+  </view> 
+  <!-- <view class='signle-cell'>
+    <view class='cell-left'>结算客户</view>
+    <view class='cell-right arrow-right'>
+       <picker bindchange="bindAccountClientChange" value="{{index}}" range-key="partnerName" range="{{accountClientList}}">
+        <view>{{accountClientList[index].partnerName}}</view>
+      </picker>
+    </view>
+  </view>  -->
+
+  <!-- <view class='signle-cell'>
+    <view class='cell-left'>结算方式</view>
+    <view class='cell-right arrow-right'>
+       <picker value="{{index}}" range="{{array}}">
+        <view>{{array[index]}}</view>
+      </picker>
+    </view>
+  </view> -->
+  <!-- <view class='signle-cell'>
+      <view class='cell-left'>支付方式</view>
+      <view class='cell-right arrow-right'>
+          <picker value="{{index}}" range="{{array}}">
+            <view>{{array[index]}}</view>
+          </picker>
+      </view>
+  </view> -->
+  <view class='cells'>
+    <view class='signle-cell'>
+      <view class='cell-left'>商品收货信息</view>
+    </view>
+    <view class='addres-mes' hover-class='none' data-addrtype='goods' bindtap='editAddress'>
+         <view class='left'>
+            <view class='mes-p'>
+              <view class='mes-p-name'>收货人：{{orderAddr.name}}</view>
+              <view class='mes-p-phone'>{{orderAddr.mobile}}</view>
+            </view>
+          <view class='mes-ad'>收货地址：{{orderAddr.addrInfo}}</view>
+          </view> 
+        <view class='arrow-right'></view>
+      </view>
+  </view> 
+ 
+</view>
+
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>发票信息</view>
+    <!-- <view class='cell-right arrow-right'>
+       <picker bindchange="bindInvoiceChange" value="{{isInvoiceDeliverIndex}}" range-key="" range="{{isInvoiceDeliver}}">
+        <view>{{isInvoiceDeliver[isInvoiceDeliverIndex]}}</view>
+      </picker>
+    </view> -->
+  </view>
+  <view class='invoice-mes' style = 'height:100rpx' wx:if="{{isInvoiceDeliverIndex<3}}">
+    <view class='left' >
+      <!-- <view class='invoice-mes-row'>
+        <text class='t'>发票类型：</text>
+        <text>{{invoiceInfo.isCommonInvoice == "1" ?'增值税普通发票':'增值税专用发票'}}(纸质发票)</text>
+      </view> -->
+      <view class='invoice-mes-row'>
+        <text class='t'>发票抬头：</text>
+        <text >{{invoiceInfo.invoiceTitle}}</text>
+      </view>
+      <view class='invoice-mes-row'>
+        <text class='t'>税号：</text>
+        <text>{{invoiceInfo.taxNo}}</text>
+      </view>
+       <!-- <view class='invoice-mes-row'>
+        <text class='t'>发票收货人：</text>
+        <text>{{invoiceInfo.reciveName}}</text>
+      </view>
+      <view class='invoice-mes-row'>
+        <text class='t'>收货电话：</text>
+        <text>{{invoiceInfo.reciveTel}}</text>
+      </view>
+      <view class='invoice-mes-row'>
+        <text class='t'>收货地址：</text>
+        <text>{{invoiceInfo.reciveAddr}}</text>
+      </view>  -->
+    </view>
+
+    <!-- <view class='arrow-right'></view> -->
+  </view>
+  <view class='cells'>
+    <view class='signle-cell'>
+      <view class='cell-left'>发票寄送信息</view>
+    </view>
+    <view class='addres-mes' hover-class='none' data-addrtype='invoice' bindtap='editAddress'>
+         <view class='left'>
+            <view class='mes-p'>
+              <view class='mes-p-name'>收货人：{{invoiceInfo.reciveName}}</view>
+              <view class='mes-p-phone'>{{invoiceInfo.reciveTel}}</view>
+            </view>
+          <view class='mes-ad'>收货地址：{{invoiceInfo.reciveAddr}}</view>
+          </view> 
+        <view class='arrow-right'></view>
+      </view>
+  </view> 
+</view> 
+
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-right' style='color: #B9966F'>备注</view>
+    <view class='cell-left' style='margin-right:0;margin-left:50rpx;'>
+      <input placeholder='请输入' value='{{remark}}' bindinput='bindChangeRemark' placeholder-style='color:#999' style='color:#999;text-align:right;'></input>
+    </view>
+  </view>
+</view> 
+
+<view class='cells'>
+  <view class='signle-cell'>
+    <view class='cell-left'>已选商品</view>
+    <!-- <view class='cell-right'>x{{total.packageCnt}} + {{total.excessCnt}}</view> -->
+  </view>
+  <view class='order-item' wx:for="{{goodsList}}">
+    <image class='order-item-image' src='{{item.tmGoodsSkuListCusts[0].imgUrls[0].url}}'></image>
+    <view class='order-item-mes'>
+      <view class='first-row'>
+        <view class='order-item-title'>{{item.goodsName}}</view>
+        <view class='order-item-act' style='margin-left:260rpx;s'>
+          <view class='icon-delete' data-index="{{index}}" bindtap='deleteGoods'></view>
+        </view>
+      </view>
+      <view class='second-row'>折扣: {{item.realDiscount}}%</view>
+      <view class='third-row'>
+        <view class='order-item-price'>
+          <view class='now'>
+            <text class='i'>¥</text>
+             <text>{{item.skuList[0].realPrice}}</text>
+          </view>
+          <view class='old' wx:if="{{item.realDiscount<100}}">¥{{item.skuList[0].unitPrice}}</view>
+        </view>
+        <view class='order-item-num'>×{{item.packageCnt}}+{{item.excessCnt}}</view>
+      </view>
+    </view>
+  </view>
+  
+</view> 
+
+<view class='fixed-bottom-bar'>
+  <view class='aw-btn bg-third' style='text-align:left;padding-left:30rpx;'>
+    <text>￥{{totalPrice}}</text>
+    <text style='font-size:24rpx;color:#C8A987;margin-left:10rpx;'>(已优惠￥{{offerTotal}})</text>
+  </view>
+  <view class='fw-btn bg-primary' bindtap='saveOrder'>暂存订单</view>
+  <view class='fw-btn bg-primary' bindtap='submitOrder'>提交订单</view>
+</view>

@@ -1,0 +1,140 @@
+/* pages/checkOrder/checkOrder.wxss */
+page{
+  background-color: #F2F2F2;
+  padding-bottom: 96rpx;
+}
+.cells{
+  margin-bottom: 20rpx;
+}
+.cells .signle-cell{
+  height: 96rpx;
+  font-size: 30rpx;
+}
+.signle-cell .cell-left{
+  color: #B9966F
+}
+
+.addres-mes{
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.addres-mes .arrow-right{
+  flex-shrink: 0;
+  height: 50rpx;
+}
+.addres-mes .left{
+  width: 100%;
+  flex-shrink: 1;
+  overflow: hidden;
+}
+.addres-mes .left .mes-p{
+  font-size: 32rpx;
+  display: flex;
+  height: 50rpx;
+  line-height: 50rpx;
+  justify-content: space-between;
+}
+.addres-mes .left .mes-ad{
+  font-size: 28rpx;
+  line-height: 36rpx;
+  color: #777;
+  margin-top: 10rpx;
+}
+.invoice-mes{
+  height: 198rpx;
+  display: flex;
+  padding: 0 30rpx;
+  align-items: center;
+}
+.invoice-mes .arrow-right{
+  flex-shrink: 0;
+  height: 60rpx;
+}
+.invoice-mes .left{
+  width: 100%;
+  flex-shrink: 1;
+  overflow: hidden;
+}
+.invoice-mes .invoice-mes-row{
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 46rpx;
+  line-height: 46rpx;
+}
+.invoice-mes .invoice-mes-row .t{
+  color: #999;
+  width: 140rpx;
+  display: inline-block;
+}
+.order-item{
+  height: 230rpx;
+  display: flex;
+  padding: 0 30rpx;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+}
+.cells .order-item:last-child{
+  border-bottom: none
+}
+.order-item .order-item-image{
+  width: 170rpx;
+  height: 170rpx;
+  border-radius: 6rpx;
+  flex-shrink: 0;
+}
+.order-item .order-item-mes{
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 1;
+  margin-left: 30rpx;
+  height: 170rpx;
+}
+.order-item .first-row{
+  height: 70rpx;
+  line-height: 35rpx;
+  font-size: 32rpx;
+  display: flex;
+}
+.order-item .first-row .order-item-title{
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2; 
+  white-space: normal;
+}
+.order-item .first-row .order-item-act{
+  flex-shrink: 0;
+  margin-left: 120rpx;
+}
+.order-item .second-row{
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #999;
+  overflow: hidden;
+}
+.order-item .third-row{
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-top: 10rpx;
+  color: #999;
+  display: flex;
+  justify-content: space-between;
+}
+.order-item .order-item-price{
+  color: #E66363;
+  font-size: 32rpx;
+  display: flex;
+}
+.order-item .order-item-price .i{
+  font-size: 24rpx;
+}
+.order-item .order-item-price .old{
+  text-decoration: line-through;
+  font-size: 22rpx;
+  color: #999;
+  margin-left: 10rpx;
+}
